@@ -78,7 +78,7 @@ export default function Recognition() {
       {/* Animated Background Particles */}
       <Sidebar/>  
       
-      <div className="max-w-7xl mx-auto ml-">
+      <div className="max-w-7xl mx-auto ml-80">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
