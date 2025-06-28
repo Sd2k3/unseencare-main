@@ -40,7 +40,7 @@ export default function Safety() {
 
   const handleSOS = async () => {
     try {
-      const response = await fetch('http://localhost:5000/trigger-sos', {
+      const response = await fetch('https://36752693-56b3-4556-b04c-0fee3e67c99e-00-31p7rxt0d6xvn.sisko.replit.dev/trigger-sos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
