@@ -314,8 +314,4 @@ export default function Safety() {
       </div>
     </>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 62545233b50140918c9eb3807b126252b723f7fb

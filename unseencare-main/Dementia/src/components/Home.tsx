@@ -268,9 +268,11 @@ const Home = () => {
   <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
     <img src="/placeholder.svg" alt="Logo" className="h-12" />
     <div id="nav-part2" className="flex items-center gap-[1vw]">
+      <Link to="/signup">
       <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
                 Sign In
               </button>
+      </Link>
       <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
         <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
           Contact
@@ -559,12 +561,12 @@ const Home = () => {
                 </h3>
                 </Link>
               </a>
-              <a href="#" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+              <a href="https://unseencare-main.vercel.app/" target="_blank" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   EPILEPSY CURE
                 </h3>
               </a>
-              <a href="#" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+              <a href="https://unseencare-main-yrdw.vercel.app/" target="_blank" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   SPEECH DISORDER CURE
                 </h3>
