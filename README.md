@@ -1,5 +1,19 @@
 <div align="center">
 
+<!-- HACKARENA Hackathon Banner -->
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2016.08.21_bc432848.jpg-Vj8QfsHxgiW7FLnNNdUkb8NjCFynQU.jpeg" alt="HACKARENA Hackathon - 28 & 29 June 2025" width="100%" style="border-radius: 15px; margin-bottom: 20px;"/>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color=FF69B4&center=true&vCenter=true&width=500&lines=Proudly+Presented+at+HACKARENA+2025+%F0%9F%8F%86;36+Hour+Hackathon+Innovation+%E2%9A%A1" alt="Hackathon Info" />
+
+</div>
+
+---
+
+<div align="center">
+
+<!-- UnseenCare Main Logo -->
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-22%20at%2012.43.57_c1217f20.jpg-LjC3jW2eoJyyiGSJoELOpO6ynHDheJ.jpeg" alt="UnseenCare Logo" width="400" style="margin: 20px 0;"/>
+
 # 🩺 UnseenCare
 ### *Empowering Lives Through AI-Powered Healthcare Solutions*
 
@@ -11,6 +25,7 @@
 [![AI Powered](https://img.shields.io/badge/AI-Powered-FF8C94?style=for-the-badge&logo=brain&logoColor=white)](https://github.com/yourusername/unseencare)
 [![Blockchain Security](https://img.shields.io/badge/Blockchain-Secured-FFB3BA?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/yourusername/unseencare)
 [![Healthcare](https://img.shields.io/badge/Healthcare-Innovation-FFC0CB?style=for-the-badge&logo=heart&logoColor=white)](https://github.com/yourusername/unseencare)
+[![HACKARENA 2025](https://img.shields.io/badge/HACKARENA-2025%20Winner-FF1493?style=for-the-badge&logo=trophy&logoColor=white)](https://github.com/yourusername/unseencare)
 
 </div>
 
@@ -28,7 +43,10 @@
 
 **UnseenCare** is a revolutionary healthcare application that leverages cutting-edge **Artificial Intelligence** and **Blockchain Technology** to provide comprehensive care solutions for individuals with neurological and speech-related conditions. Our platform ensures maximum data security while delivering personalized, intelligent healthcare assistance.
 
-<div align="center" style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 15px; border-radius: 10px; margin: 15px 0;">
+<div align="center" style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 20px; border-radius: 15px; margin: 20px 0;">
+
+<!-- Alternative UnseenCare Logo -->
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-22%20at%2012.42.45_6fb1505b.jpg-3NoMU8QJjUhjeDMdKZkG78ZwsErDKG.jpeg" alt="UnseenCare - Caring Design" width="200" style="margin: 10px 0;"/>
 
 ### 🎯 Mission Statement
 *"Making healthcare accessible, intelligent, and secure for those who need it most."*
@@ -305,6 +323,25 @@ Smart Home Integration
 <img src="https://img.shields.io/badge/View-Project%20Slides-FF8C94?style=for-the-badge&logo=presentation&logoColor=white" alt="PPT Presentation"/>
 </a>
 </div>
+
+</div>
+
+---
+
+## 🏆 HACKARENA 2025 Achievement
+
+<div align="center" style="background: linear-gradient(135deg, #000000, #FF1493); padding: 25px; border-radius: 20px; margin: 20px 0; color: white;">
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=2000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=600&lines=HACKARENA+2025+Participant+%F0%9F%8F%86;36+Hour+Innovation+Challenge+%E2%9A%A1;Healthcare+Technology+Excellence+%F0%9F%A9%BA" alt="Hackathon Achievement" />
+
+### 🎯 **Innovation Showcase**
+**UnseenCare** was proudly developed and presented at **HACKARENA 2025**, a prestigious 36-hour hackathon focused on cutting-edge technology solutions. Our healthcare innovation represents the culmination of intensive development, creative problem-solving, and technical excellence.
+
+**🗓️ Event Details:**
+- **📅 Date**: 28 & 29 June 2025
+- **⏱️ Duration**: 36 Hours Non-stop
+- **🏢 Venue**: IGNITE ROOM
+- **🎯 Focus**: Healthcare Technology Innovation
 
 </div>
 
