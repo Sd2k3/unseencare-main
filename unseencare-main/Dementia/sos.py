@@ -15,8 +15,8 @@ load_dotenv()
 # Twilio credentials
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
-RECIPIENT_PHONE_NUMBER = os.getenv("RECIPIENT_PHONE_NUMBER")
+TWILIO_PHONE_NUMBER = "+19208126026"
+RECIPIENT_PHONE_NUMBER = ""
 
 # Email credentials
 EMAIL_SENDER = os.getenv("EMAIL_SENDER")
@@ -24,7 +24,7 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT")
 
 # SOS message
-SOS_MESSAGE = "Help needed!!!!"
+SOS_MESSAGE = "Hiii it's me Swarajit, just trying out the SOS feature...YOOOO"
 
 # Function to get GPS coordinates using an alternative IP-based service
 def get_gps_coordinates():

@@ -50,7 +50,22 @@ export default function Medication() {
         },
       ],
     },
-   
+    {
+      category: "NMDA Receptor Antagonist",
+      description: "Slows disease progression",
+      drugs: [
+        {
+          name: "Memantine (Namenda)",
+          usage: "For moderate to severe Alzheimer's",
+          image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=2830&auto=format&fit=crop",
+          precautions: [
+            "Avoid alcohol; may worsen side effects",
+            "Watch for dizziness, confusion, or headache",
+            "Do not crush or split extended-release tablets",
+          ],
+        },
+      ],
+    },
   ]
 
   const caregivers = [

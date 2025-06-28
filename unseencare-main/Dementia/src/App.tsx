@@ -1,4 +1,22 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar';
+import Header from './components/Header';
+import QuickActions from './components/QuickActions';
+import Schedule from './components/Schedule';
+import Chat from './components/Chat';
+import Activities from './components/Activities';
+import Journal from './components/journal';
+import Safety from './components/Safety';
+import Tasks from './components/Tasks';
+import MoodTracker from './components/MoodTracker';
+import Reminders from './components/Reminders';
+import Recognition from './components/Recognition';
+import MusicTherapy from './components/MusicTherapy';
+import VoiceNotes from './components/VoiceNotes';
+>>>>>>> a2250ab7805a9b0da3b9bb48fb413b299026050f
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
 import Dashboard from './components/Dashboard';

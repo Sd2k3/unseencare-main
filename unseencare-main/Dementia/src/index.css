@@ -1,8 +1,17 @@
+@import url("leaflet/dist/leaflet.css"); /* must be on top */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+.leaflet-marker-icon,
+.leaflet-popup {
+  z-index: 1000 !important;
+}
 
 @keyframes gradient-move {
   0%, 100% { background-position: 0% 50%; }
