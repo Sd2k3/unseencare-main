@@ -23,6 +23,7 @@ interface QuickStat {
   color: string;
 }
 
+
 const Home: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
