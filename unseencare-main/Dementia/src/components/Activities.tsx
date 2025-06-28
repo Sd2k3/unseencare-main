@@ -205,19 +205,17 @@ export default function Activities() {
 
     return (
       <div className="p-8">
-      <Sidebar/>
-
-        <h2 className="text-2xl font-bold mb-4">Memory Match Game</h2>
-        <p className="text-gray-600 mb-8">Match pairs of cards to improve memory</p>
+        <h2 className="text-2xl font-bold mb-4 text-pink-800">Memory Match Game</h2>
+        <p className="text-pink-600 mb-8">Match pairs of cards to improve memory</p>
         <div className="grid grid-cols-4 gap-4 max-w-md mx-auto">
           {gameState.cards.map((card, index) => (
             <button
               key={card.id}
               onClick={() => handleCardClick(index)}
-              className={`w-20 h-20 rounded-lg flex items-center justify-center text-xl font-bold transition-all duration-300 ${
+              className={`w-20 h-20 rounded-lg flex items-center justify-center text-xl font-bold transition-all duration-300 hover:scale-105 shadow-lg ${
                 card.isFlipped || card.isMatched
-                  ? 'bg-black text-white'
-                  : 'bg-gray-200'
+                  ? 'bg-gradient-to-br from-pink-500 to-pink-600 text-white'
+                  : 'bg-gradient-to-br from-pink-100 to-pink-200 hover:from-pink-200 hover:to-pink-300'
               }`}
             >
               {(card.isFlipped || card.isMatched) && card.value}
@@ -233,25 +231,24 @@ export default function Activities() {
 
     return (
       <div className="p-8">
-      <Sidebar/>
-        <h2 className="text-2xl font-bold mb-4">Pattern Sequence</h2>
-        <p className="text-gray-600 mb-8">Level {gameState.sequence.level}: Remember and repeat the sequence</p>
+        <h2 className="text-2xl font-bold mb-4 text-pink-800">Pattern Sequence</h2>
+        <p className="text-pink-600 mb-8">Level {gameState.sequence.level}: Remember and repeat the sequence</p>
         <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
           {[1, 2, 3, 4].map((num) => (
             <button
               key={num}
               onClick={() => handleSequenceClick(num)}
-              className="w-24 h-24 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-2xl font-bold"
+              className="w-24 h-24 rounded-lg bg-gradient-to-br from-pink-200 to-pink-300 hover:from-pink-300 hover:to-pink-400 hover:scale-105 transition-all duration-200 flex items-center justify-center text-2xl font-bold text-pink-800 shadow-lg"
             >
               {num}
             </button>
           ))}
         </div>
         <div className="mt-8 text-center">
-          <p className="text-gray-600">
+          <p className="text-pink-600">
             Pattern: {gameState.sequence.pattern.join(' → ')}
           </p>
-          <p className="text-gray-600 mt-2">
+          <p className="text-pink-600 mt-2">
             Your sequence: {gameState.sequence.userPattern.join(' → ')}
           </p>
         </div>
@@ -264,18 +261,19 @@ export default function Activities() {
 
     return (
       <div className="p-8">
-      <Sidebar/>
-        <h2 className="text-2xl font-bold mb-4">Shape Recognition</h2>
-        <p className="text-gray-600 mb-8">Match the shape shown above</p>
+        <h2 className="text-2xl font-bold mb-4 text-pink-800">Shape Recognition</h2>
+        <p className="text-pink-600 mb-8">Match the shape shown above</p>
         <div className="text-center mb-8">
-          <div className="text-6xl mb-4">{gameState.shapes.current}</div>
+          <div className="text-6xl mb-4 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full w-32 h-32 flex items-center justify-center mx-auto shadow-lg">
+            {gameState.shapes.current}
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
           {gameState.shapes.options.map((shape, index) => (
             <button
               key={index}
               onClick={() => handleShapeClick(shape)}
-              className="w-24 h-24 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-4xl"
+              className="w-24 h-24 rounded-lg bg-gradient-to-br from-pink-200 to-pink-300 hover:from-pink-300 hover:to-pink-400 hover:scale-105 transition-all duration-200 flex items-center justify-center text-4xl shadow-lg"
             >
               {shape}
             </button>
@@ -290,16 +288,15 @@ export default function Activities() {
 
     return (
       <div className="p-8">
-      <Sidebar/>
-        <h2 className="text-2xl font-bold mb-4">Simple Math</h2>
-        <p className="text-gray-600 mb-8">Solve basic arithmetic problems</p>
+        <h2 className="text-2xl font-bold mb-4 text-pink-800">Simple Math</h2>
+        <p className="text-pink-600 mb-8">Solve basic arithmetic problems</p>
         <div className="max-w-md mx-auto text-center">
-          <div className="text-3xl mb-4">{gameState.math.question} = ?</div>
+          <div className="text-3xl mb-4 text-pink-700">{gameState.math.question} = ?</div>
           <input
             type="number"
             value={gameState.math.userAnswer}
             onChange={(e) => handleMathInput(e.target.value)}
-            className="w-24 h-12 text-center text-2xl border rounded-lg"
+            className="w-24 h-12 text-center text-2xl border-2 border-pink-200 rounded-lg focus:border-pink-400 focus:outline-none"
           />
           <button
             onClick={() => {
@@ -316,7 +313,7 @@ export default function Activities() {
                 });
               }
             }}
-            className="ml-4 px-6 py-2 bg-black text-white rounded-lg"
+            className="ml-4 px-6 py-2 bg-gradient-to-r from-pink-500 to-pink-600 text-white rounded-lg hover:from-pink-600 hover:to-pink-700 transition-all duration-200 shadow-lg"
           >
             Check
           </button>
@@ -337,7 +334,7 @@ export default function Activities() {
         return renderMathGame();
       default:
         return (
-          <div className="p-8 text-center text-gray-600">
+          <div className="p-8 text-center text-pink-600">
             Select an activity to begin
           </div>
         );
@@ -350,15 +347,15 @@ export default function Activities() {
 
   if (gameState.currentGame) {
     return (
-      <div className="min-h-screen bg-gray-50">
-      <Sidebar/>
-        <div className="max-w-4xl mx-auto pt-8">
-          <div className="bg-white rounded-2xl shadow-sm">
+      <div className="min-h-screen bg-gradient-to-br from-pink-50 via-pink-100 to-rose-100 relative">
+        <Sidebar/>
+        <div className="max-w-4xl mx-auto pt-8 ml-64">
+          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-pink-200">
             {renderGameContent()}
             <div className="p-8 pt-0 flex justify-between">
               <button
                 onClick={() => setGameState({ ...gameState, currentGame: null })}
-                className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                className="px-6 py-2 text-pink-600 hover:text-pink-800 hover:bg-pink-100 rounded-lg transition-all duration-200"
               >
                 Back to Activities
               </button>
@@ -370,38 +367,64 @@ export default function Activities() {
   }
 
   return (
-      <div className="min-h-screen bg-gray-50 p-8 ml-72 "  >
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-pink-100 to-rose-100 p-8 ml-64 relative">
+      {/* Floating particles for ambiance */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-pink-200/30 animate-pulse"
+            style={{
+              width: Math.random() * 8 + 4 + 'px',
+              height: Math.random() * 8 + 4 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              animationDelay: Math.random() * 5 + 's',
+              animationDuration: (Math.random() * 10 + 10) + 's'
+            }}
+          />
+        ))}
+      </div>
+      
       <Sidebar/>
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-8 flex items-center gap-2">
-          <Gamepad2Icon className="w-8 h-8 text-indigo-900" />
-          <h1 className="text-3xl font-bold text-indigo-900 mb-2 block">Cognitive Activities</h1>
-          <p className="text-indigo-800 block ">Brain training exercises for cognitive health</p>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div className="mb-8 flex items-center gap-4">
+          <div className="p-3 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl shadow-lg">
+            <Gamepad2Icon className="w-8 h-8 text-white" />
+          </div>
+          <div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+              Cognitive Activities
+            </h1>
+            <p className="text-pink-700 text-lg">Brain training exercises for cognitive health</p>
+          </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-8 mb-6  bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 mb-6 shadow-xl border border-pink-200 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-2xl font-bold text-white">Activity Progress</h2>
-              <p className="text-white">Track your progress across different activities</p>
+              <p className="text-pink-100">Track your progress across different activities</p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-gray-900">Level 3</span>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg">
+              <span className="text-white font-semibold">Level 3</span>
             </div>
           </div>
           
           {activities.map((activity, index) => (
             <div key={index} className="mb-6">
               <div className="flex items-center justify-between mb-2">
-                <div className="flex items-center gap-2">
-                  <activity.icon className="w-5 h-5" />
-                  <span className=" font-medium">{activity.title}</span>
+                <div className="flex items-center gap-3">
+                  <activity.icon className="w-5 h-5 text-pink-100" />
+                  <span className="font-medium text-white">{activity.title}</span>
                 </div>
-                <span className="bg-gradient-to-r from-purple-600 to-indigo text-white px-3 py-1 rounded-lg">{activity.progress}%</span>
+                <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-lg font-semibold">
+                  {activity.progress}%
+                </span>
               </div>
-              <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+              <div className="h-3 bg-pink-200/30 rounded-full overflow-hidden">
                 <div 
-                  className="h-full  bg-gradient-to-r from-green-600 to-green-800 rounded-full"
+                  className="h-full bg-white/80 rounded-full transition-all duration-500"
                   style={{ width: `${activity.progress}%` }}
                 />
               </div>
@@ -414,10 +437,10 @@ export default function Activities() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium text-white bg-gradient-to-b from-purple-800 to-purple-900 group-hover:from-purple-800/95 group-hover:to-purple-800/40 ${
+              className={`px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:scale-105 shadow-lg ${
                 activeFilter === filter
-                  ? 'bg-black text-white'
-                  : 'bg-white text-gray-600'
+                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white'
+                  : 'bg-white/90 backdrop-blur-sm text-pink-700 hover:bg-white border border-pink-200'
               }`}
             >
               {filter}
@@ -425,38 +448,40 @@ export default function Activities() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredActivities.map((activity, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 b">
-              <div className="flex justify-between items-start mb-4 ">
-                <h3 className="text-xl font-bold text-gray-900">{activity.title}</h3>
-                <activity.icon className="w-6 h-6 text-gradient-to-r from-pink-500 to-purple-500 " />
+            <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-pink-200 hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-xl font-bold text-pink-800 group-hover:text-pink-900">{activity.title}</h3>
+                <div className="p-2 bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg group-hover:from-pink-200 group-hover:to-rose-200 transition-all duration-200">
+                  <activity.icon className="w-6 h-6 text-pink-600" />
+                </div>
               </div>
-              <p className="text-gray-600 mb-6">{activity.description}</p>
+              <p className="text-pink-600 mb-6">{activity.description}</p>
               
               <div className="flex items-center gap-2 mb-4">
-                <span className="bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-sm">
+                <span className="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">
                   {activity.category}
                 </span>
-                <span className="bg-gray-100 text-gray-900 px-3 py-1 rounded-full text-sm">
+                <span className="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">
                   {activity.difficulty}
                 </span>
               </div>
               
-              <div className="space-y-2">
-                <div className="flex justify-between items-center text-sm text-gray-600">
+              <div className="space-y-3">
+                <div className="flex justify-between items-center text-sm text-pink-700">
                   <span>Progress</span>
-                  <span>{activity.progress}%</span>
+                  <span className="font-semibold">{activity.progress}%</span>
                 </div>
-                <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div className="h-2 bg-pink-100 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-full"
+                    className="h-full bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full transition-all duration-500"
                     style={{ width: `${activity.progress}%` }}
                   />
                 </div>
                 <button
                   onClick={() => setGameState({ ...gameState, currentGame: activity.game })}
-                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl py-3 mt-4 font-medium"
+                  className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl py-3 mt-4 font-medium hover:from-pink-600 hover:to-rose-600 transition-all duration-200 shadow-lg hover:shadow-xl"
                 >
                   {activity.progress > 0 ? 'Continue' : 'Start'}
                 </button>
@@ -467,5 +492,4 @@ export default function Activities() {
       </div>
     </div>
   );
-} 
-
+}
