@@ -1,34 +1,42 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Camera,
   ScanFace,
   Box,
   ShieldCheck,
   Brain,
   Sparkles,
   AlertCircle,
+  ChevronRight,
 } from 'lucide-react';
-import Sidebar from './Sidebar';
 
 export default function Recognition() {
   const [activeSection, setActiveSection] = useState<'face' | 'object' | null>(null);
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  function triggerTraining() {
-    fetch("http://localhost:5000/train", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
+  async function triggerTraining() {
+    setIsLoading(true);
+    try {
+      const response = await fetch("http://localhost:5000/train", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({}),
+      });
+      const data = await response.json();
+      setMessage(data.message || "Training completed successfully!");
+    } catch (err) {
+      setMessage("Error during training process");
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   const triggerDetection = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("http://127.0.0.1:5000/detect", {
         method: "POST",
@@ -36,11 +44,12 @@ export default function Recognition() {
           "Content-Type": "application/json",
         },
       });
-
       const data = await response.json();
-      setMessage(data.message);
+      setMessage(data.message || "Detection started successfully");
     } catch (error) {
       setMessage("Error starting object detection.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,10 +67,10 @@ export default function Recognition() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 relative overflow-x-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-pink-300/30 rounded-full"
@@ -83,108 +92,71 @@ export default function Recognition() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-20 py-12">
-        <Sidebar/>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 pl-0 sm:pl-20">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12 px-4 sm:px-0"
         >
-          <h1 className="text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-600 via-rose-500 to-pink-700">
             Smart Recognition Technology
           </h1>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
             Experience the power of advanced AI recognition systems designed to enhance daily life and safety for individuals with dementia.
           </p>
         </motion.div>
 
         {/* Main Recognition Sections */}
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 px-4 sm:px-0">
           {/* Face Recognition Section */}
           <motion.div
             className="relative group"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             onHoverStart={() => setActiveSection('face')}
             onHoverEnd={() => setActiveSection(null)}
           >
-            <div className="h-[450px] rounded-3xl overflow-hidden relative shadow-2xl">
+            <div className="h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden relative shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?q=80&w=2669&auto=format&fit=crop"
                 alt="Face Recognition"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               
-              {/* Animated overlay */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-pink-900/90 via-pink-800/50 to-transparent"
-                whileHover={{ 
-                  background: "linear-gradient(to top, rgba(190, 24, 93, 0.95), rgba(190, 24, 93, 0.6), transparent)" 
-                }}
-                transition={{ duration: 0.5 }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-t from-pink-900/80 via-pink-800/40 to-transparent" />
               
-              {/* Floating particles effect on hover */}
-              <AnimatePresence>
-                {activeSection === 'face' && (
-                  <>
-                    {[...Array(15)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-pink-300 rounded-full"
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ 
-                          opacity: [0, 1, 0], 
-                          scale: [0, 1.5, 0],
-                          x: Math.random() * 400 - 200,
-                          y: Math.random() * 400 - 200,
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.1,
-                        }}
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                        }}
-                      />
-                    ))}
-                  </>
-                )}
-              </AnimatePresence>
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="flex items-center mb-4">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <ScanFace className="w-10 h-10 mr-4" />
-                    </motion.div>
-                    <h3 className="text-4xl font-bold">Face Recognition</h3>
+              <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end text-white">
+                <div>
+                  <div className="flex items-center mb-2">
+                    <ScanFace className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
+                    <h3 className="text-xl sm:text-2xl font-bold">Face Recognition</h3>
                   </div>
-                  <p className="text-lg text-pink-100 mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-pink-100 mb-4">
                     Advanced facial recognition system that helps identify familiar faces and maintain social connections.
                   </p>
 
                   <motion.button
                     onClick={triggerTraining}
-                    whileHover={{ 
-                      scale: 1.05,
-                      boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-                    }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-white text-pink-700 font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-pink-50 transition-all duration-300"
+                    disabled={isLoading}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`flex items-center justify-center gap-1 bg-white text-pink-700 font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-pink-50 transition-all ${isLoading ? 'opacity-70' : ''}`}
                   >
-                    Train Model
+                    {isLoading ? (
+                      <>
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-pink-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing
+                      </>
+                    ) : (
+                      <>
+                        Train Model <ChevronRight className="w-4 h-4" />
+                      </>
+                    )}
                   </motion.button>
-                </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -192,98 +164,60 @@ export default function Recognition() {
           {/* Object Recognition Section */}
           <motion.div
             className="relative group"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.02 }}
             onHoverStart={() => setActiveSection('object')}
             onHoverEnd={() => setActiveSection(null)}
           >
-            <div className="h-[450px] rounded-3xl overflow-hidden relative shadow-2xl">
+            <div className="h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden relative shadow-md">
               <img
                 src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2670&auto=format&fit=crop"
                 alt="Object Recognition"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               
-              {/* Animated overlay */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-t from-rose-900/90 via-rose-800/50 to-transparent"
-                whileHover={{ 
-                  background: "linear-gradient(to top, rgba(225, 29, 72, 0.95), rgba(225, 29, 72, 0.6), transparent)" 
-                }}
-                transition={{ duration: 0.5 }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-t from-rose-900/80 via-rose-800/40 to-transparent" />
               
-              {/* Floating particles effect on hover */}
-              <AnimatePresence>
-                {activeSection === 'object' && (
-                  <>
-                    {[...Array(15)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-rose-300 rounded-full"
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ 
-                          opacity: [0, 1, 0], 
-                          scale: [0, 1.5, 0],
-                          x: Math.random() * 400 - 200,
-                          y: Math.random() * 400 - 200,
-                        }}
-                        transition={{ 
-                          duration: 2,
-                          repeat: Infinity,
-                          delay: i * 0.1,
-                        }}
-                        style={{
-                          left: '50%',
-                          top: '50%',
-                        }}
-                      />
-                    ))}
-                  </>
-                )}
-              </AnimatePresence>
-              
-              <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="flex items-center mb-4">
-                    <motion.div
-                      whileHover={{ rotate: 360, scale: 1.2 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Box className="w-10 h-10 mr-4" />
-                    </motion.div>
-                    <h3 className="text-4xl font-bold">Object Recognition</h3>
+              <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end text-white">
+                <div>
+                  <div className="flex items-center mb-2">
+                    <Box className="w-6 h-6 sm:w-8 sm:h-8 mr-2" />
+                    <h3 className="text-xl sm:text-2xl font-bold">Object Recognition</h3>
                   </div>
-                  <p className="text-lg text-rose-100 mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-rose-100 mb-4">
                     Advanced object detection system that identifies objects in real-time and provides contextual information.
                   </p>
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <motion.button
                       onClick={triggerTraining}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-white text-rose-700 font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-rose-50 transition-all duration-300"
+                      disabled={isLoading}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`flex items-center justify-center gap-1 bg-white text-rose-700 font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-rose-50 transition-all ${isLoading ? 'opacity-70' : ''}`}
                     >
-                      Train Model
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-rose-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Processing
+                        </>
+                      ) : (
+                        <>
+                          Train Model <ChevronRight className="w-4 h-4" />
+                        </>
+                      )}
                     </motion.button>
 
                     <motion.button
                       onClick={triggerDetection}
-                      whileHover={{ 
-                        scale: 1.05,
-                        boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-green-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-green-600 transition-all duration-300"
+                      disabled={isLoading}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex items-center justify-center gap-1 bg-green-500 text-white font-medium px-4 py-2 rounded-lg shadow-sm hover:bg-green-600 transition-all"
                     >
-                      Start Detection
+                      Start Detection <ChevronRight className="w-4 h-4" />
                     </motion.button>
                   </div>
                   
@@ -291,12 +225,12 @@ export default function Recognition() {
                     <motion.p 
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="mt-4 text-rose-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg"
+                      className="mt-3 text-xs sm:text-sm text-rose-200 bg-white/20 backdrop-blur-sm px-3 py-1 rounded"
                     >
                       {message}
                     </motion.p>
                   )}
-                </motion.div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -306,32 +240,22 @@ export default function Recognition() {
         <AnimatePresence mode="wait">
           {activeSection && (
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              className="grid md:grid-cols-3 gap-8 mb-16"
+              exit={{ opacity: 0, y: -20 }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 px-4 sm:px-0"
             >
               {features[activeSection].map((feature, index) => (
                 <motion.div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -10,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-pink-200 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white/90 p-4 rounded-lg shadow-sm border border-pink-200"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <feature.icon className="w-14 h-14 mb-6 text-pink-600" />
-                  </motion.div>
-                  <h4 className="text-2xl font-semibold mb-4 text-gray-800">{feature.title}</h4>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <feature.icon className="w-8 h-8 mb-3 text-pink-600" />
+                  <h4 className="text-lg font-semibold mb-2 text-gray-800">{feature.title}</h4>
+                  <p className="text-sm text-gray-600">{feature.description}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -340,23 +264,20 @@ export default function Recognition() {
 
         {/* Contact Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="text-center bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 rounded-3xl p-12 shadow-2xl"
+          className="text-center bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 rounded-xl p-6 sm:p-8 mx-4 sm:mx-0 shadow-md"
         >
-          <h2 className="text-4xl font-bold mb-8 text-white">Get Started Today</h2>
-          <p className="text-xl text-pink-100 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4 text-white">Get Started Today</h2>
+          <p className="text-sm sm:text-base text-pink-100 mb-4 max-w-xl mx-auto">
             Ready to experience the future of AI-powered recognition technology? Contact us to learn more about our solutions.
           </p>
           <motion.button
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 15px 35px rgba(0,0,0,0.2)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white text-pink-600 px-10 py-4 rounded-xl text-lg font-semibold shadow-lg hover:bg-pink-50 transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center justify-center gap-1 mx-auto bg-white text-pink-600 font-medium px-6 py-2 rounded-lg shadow-sm hover:bg-pink-50 transition-all"
           >
-            Contact Us
+            Contact Us <ChevronRight className="w-4 h-4" />
           </motion.button>
         </motion.div>
       </div>
