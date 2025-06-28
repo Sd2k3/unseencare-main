@@ -14,7 +14,7 @@
 <!-- UnseenCare Main Logo -->
 <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/remove.photos-removed-background%20%282%29-mVR67P5SjR8e5d3IUkoT8aOq8OaQqW.png" alt="UnseenCare Logo" width="400" style="margin: 20px 0;"/>
 
-# 🩺 UnseenCare
+
 ### *Empowering Lives Through AI-Powered Healthcare Solutions*
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=FF69B4&center=true&vCenter=true&width=600&lines=Welcome+to+UnseenCare+%F0%9F%92%96;AI-Powered+Healthcare+Innovation;Secure+%E2%80%A2+Intelligent+%E2%80%A2+Compassionate" alt="Typing SVG" />
