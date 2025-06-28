@@ -35,6 +35,36 @@
 
 ---
 
+## 🌟 Platform Overview
+
+<div align="center" style="background: linear-gradient(135deg, #000000, #FF4500); padding: 25px; border-radius: 20px; margin: 20px 0; color: white;">
+
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.05.27_b33e39c9.jpg-e1GRfGXioHYrDWL4gv0e8wfYlnNCWK.jpeg" alt="Understanding Unseen Conditions" width="100%" style="border-radius: 15px; margin-bottom: 20px;"/>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&duration=2000&pause=1000&color=FFFFFF&center=true&vCenter=true&width=700&lines=Understanding+Unseen+Conditions+%F0%9F%A7%A0;Purpose-Driven+Healthcare+Platform+%F0%9F%92%96;Supporting+Overlooked+Minds+%26+Voices+%F0%9F%97%A3%EF%B8%8F" alt="Platform Overview" />
+
+### 🎯 **Our Mission**
+*UnseenCare is a purpose-driven platform dedicated to supporting minds and voices often overlooked — offering compassionate, integrated solutions for dementia, speech disorders, and epilepsy.*
+
+</div>
+
+### 🏥 **Access Our Solutions**
+<div align="center" style="margin: 20px 0;">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.09.17_c42c6cd6.jpg-so8Z110QsLKiB5GtjEB757xCcBUN6a.jpeg" alt="Access Our Solutions" width="100%" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
+### 👥 **Our Dedicated Team**
+<div align="center" style="margin: 20px 0;">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.07.43_54cb2d29.jpg-4kqFgVJm8gNqhrOF1Lbn7KQmlGnIon.jpeg" alt="Healthcare Team" width="100%" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
+### 🔍 **Detailed Solution Overview**
+<div align="center" style="margin: 20px 0;">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.08.06_8f090c4b.jpg-QYv17AF0NXerzh8TehmwfVO3EPYMq8.jpeg" alt="Solution Details" width="100%" style="border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"/>
+</div>
+
+---
+
 ## 🌸 Overview
 
 <div align="center">
@@ -320,6 +350,173 @@
 
 ---
 
+## 🗣️ SpeechFlow: Advanced Communication Therapy Platform
+
+<div align="center" style="background: linear-gradient(135deg, #FFB3BA, #FFCCCB); padding: 25px; border-radius: 20px; margin: 20px 0;">
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=2000&pause=1000&color=FF1493&center=true&vCenter=true&width=700&lines=SpeechFlow+Communication+Hub+%F0%9F%97%A3%EF%B8%8F;AI-Powered+Speech+Therapy+%F0%9F%A4%96;Complete+Communication+Enhancement" alt="SpeechFlow Typing" />
+
+### 🎯 **Complete Communication Enhancement Ecosystem**
+*Empowering individuals to master both voice and sign language communication skills through innovative AI technology*
+
+<img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" width="50" alt="Speech Animation"/>
+
+</div>
+
+### 🎤 **Communication Therapy Hub**
+<div style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.56.47_c5d3e4f3.jpg-OcEuwDmBFDaxo9cMxHjElZU4aThtEo.jpeg" alt="Communication Hub" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🌟 Comprehensive Communication Journey Tracking**
+- **📊 Progress Monitoring**: Track total score, signs learned (12/50), and practice sessions
+- **🎤 Voice Therapy Modules**: Articulation Practice, Breathing Exercises, Tongue Twisters
+- **🗣️ Advanced Speech Training**: Vowel Sounds, Consonant Blends, Fluency Training
+- **👋 Sign Language Integration**: Dual-mode communication skill development
+- **🎯 Personalized Learning Path**: Adaptive curriculum based on individual progress
+
+</div>
+
+### 📈 **Intelligent Progress Analytics**
+<div style="background: linear-gradient(135deg, #FFDAB9, #PEACHPUFF); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.57.49_bb27ae5e.jpg-aUtzxlpiGd6OdTgkWEPeIeCRjs0iKo.jpeg" alt="Speech Therapy Activities" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📊 Comprehensive Activity & Progress Tracking**
+- **🎯 Session Analytics**: 47 total sessions completed with detailed tracking
+- **🔥 Motivation Streaks**: 5-day practice streak with personal achievement tracking
+- **⭐ Scoring System**: 1250 total points earned through consistent practice
+- **⏰ Time Investment**: 320 minutes of dedicated practice time logged
+- **📈 Weekly Progress**: 59% completion rate (89 of 150 minutes this week)
+- **📅 Daily Breakdown**: Detailed daily practice minutes across the week
+
+</div>
+
+### 🤖 **AI-Powered Motion Detection**
+<div style="background: linear-gradient(135deg, #F8BBD9, #E4C1F9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.57.10_a9c89090.jpg-wlAPB59VrBtaqJp8J13xss23Zrxdc5.jpeg" alt="Real Motion Detector" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📹 Real-Time Movement Analysis**
+- **🎥 Live Camera Analysis**: AI detects actual movements from camera feed
+- **🤖 Motion AI Technology**: Advanced algorithms for precise movement recognition
+- **⚡ Live Response System**: Real-time feedback for sign language practice
+- **📊 Motion Metrics**: Track motion level, type, and detection accuracy
+- **🎯 Interactive Practice**: "Try waving, jumping, dancing, or clapping!" prompts
+- **🔄 Continuous Monitoring**: Real-time movement detection results
+
+</div>
+
+### 👥 **Community Support Network**
+<div style="background: linear-gradient(135deg, #DDA0DD, #E6E6FA); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.58.13_bbbb508d.jpg-fPXPTNLl7d4lzJxoVGmnG7428YHwyN.jpeg" alt="Speech Connect Community" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🤝 Supportive Communication Communities**
+- **💬 Stuttering Support Circle**: 156 members with 23 active online participants
+- **🎯 Articulation Heroes**: 89 members focused on clear speech mastery (12 online)
+- **👨‍🏫 Group Leadership**: Dedicated group leaders like Jordan Martinez
+- **📅 Virtual Sessions**: Scheduled practice sessions (7 PM EST example)
+- **💪 Encouragement System**: "You've got this!", "Take your time", "So proud of you!"
+- **🔒 Safe Space Environment**: "Remember, this is a safe space" messaging
+
+</div>
+
+### 🎯 **Personalized Practice Hub**
+<div style="background: linear-gradient(135deg, #FFB6C1, #FFC0CB); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.58.39_324fe15f.jpg-LPySeH75OaqBwnjgLVz9oVHch749NM.jpeg" alt="Speech Practice Hub" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🎪 Interactive Learning Modes**
+- **📊 Progress Tracking**: 5-day streak with comprehensive score monitoring
+- **🔤 Word Practice**: AI-assisted pronunciation with "Karen" virtual therapist
+- **🎭 Multiple Practice Modes**: Words, Phrases, Listen, Mirror, Games, Stories, Chat
+- **🐰 Visual Learning**: Engaging animal-based examples (rabbit illustration)
+- **🎯 Targeted Exercises**: Focused practice on specific sounds and articulation
+- **📈 Achievement System**: Track practice attempts and total scores
+
+</div>
+
+### 🎵 **Karaoke Therapy Innovation**
+<div style="background: linear-gradient(135deg, #FFCCCB, #FFB3BA); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.00.10_c60e522e.jpg-rnvFX4rD9SOS2CH7i7CGSicATltbhD.jpeg" alt="Karaoke Therapy" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🎤 AI-Powered Musical Speech Improvement**
+- **🎵 Song-Based Therapy**: "Twinkle Twinkle Little Star" with therapeutic focus
+- **📊 Performance Analytics**: Real-time scoring and progress tracking (0% shown)
+- **🎯 Skill Categories**: Articulation, Rhythm, and Breathing practice
+- **📚 Song Library**: Curated collection of therapeutic songs
+- **🔄 Difficulty Levels**: Beginner to advanced progression system
+- **⏰ Session Tracking**: Day streak and words detected metrics
+
+</div>
+
+### ⏰ **Smart Reminder System**
+<div style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.59.36_221a5192.jpg-SE93sXnU7NZBjYIL5BLxsvj161RiX9.jpeg" alt="Speech Therapy Reminders" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📅 Consistent Practice Scheduling**
+- **📊 Daily Progress**: Track completion rate (0% shown with 0 of 1 reminders)
+- **⏰ Smart Scheduling**: Customizable reminder times and frequencies
+- **📈 Statistics Integration**: Progress analytics and completion tracking
+- **🎯 Quick Actions**: Easy access to immediate practice sessions
+- **🔔 Notification Management**: Comprehensive reminder settings
+- **📱 Mobile Integration**: Seamless cross-device reminder synchronization
+
+</div>
+
+### 👤 **Personalized Profile Management**
+<div style="background: linear-gradient(135deg, #F8BBD9, #E4C1F9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.00.40_497f417e.jpg-ZvjTkG8qUhFKwR5bFqr03BwZNohjfW.jpeg" alt="Profile & Settings" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**⚙️ Comprehensive User Management**
+- **👤 Patient Profile**: Sarah Johnson (age 28) with complete personal information
+- **👨‍⚕️ Therapist Assignment**: Dr. Michael Chen as assigned speech therapist
+- **🔔 Notification Controls**: Practice reminders, session alerts, progress updates
+- **📊 Achievement Tracking**: Enabled achievement notifications for motivation
+- **⏰ Scheduling Options**: Customizable reminder times (09:00 default)
+- **📈 Progress Reports**: Weekly progress updates and analytics
+
+</div>
+
+### 💝 **SpeechFlow Inspiration**
+<div style="background: linear-gradient(135deg, #DDA0DD, #E6E6FA); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2022.56.01_ae5d4199.jpg-sokWMNatw5qCwe1TqE1MgkQNuYGdVZ.jpeg" alt="SpeechFlow Motivation" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🌟 Daily Motivation & Empowerment**
+- **💪 Inspirational Messaging**: "Every word matters, every sound counts"
+- **🎯 Clear Communication Goal**: "Together we unlock the power of clear communication"
+- **🗣️ Voice Empowerment**: "Your voice is unique and powerful"
+- **📈 Progress Celebration**: "Every practice session brings you closer to confident communication"
+- **👥 Team Support**: Encouragement from the SpeechFlow Therapy Team
+- **🌈 Positive Reinforcement**: Building confidence through motivational content
+
+</div>
+
+---
+
 ## 🔐 Security & Privacy
 
 <div align="center" style="background: linear-gradient(135deg, #F8BBD9, #E4C1F9); padding: 20px; border-radius: 15px;">
@@ -492,3 +689,6 @@ npm install -g react-native-cli
 
 # Python (for AI/ML components) 🐍
 python --version
+```
+```
+
