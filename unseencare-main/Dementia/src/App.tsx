@@ -1,31 +1,13 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
 import React, { useState } from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import QuickActions from './components/QuickActions';
-import Schedule from './components/Schedule';
-import Chat from './components/Chat';
-import Activities from './components/Activities';
-import Journal from './components/journal';
-import Safety from './components/Safety';
-import Tasks from './components/Tasks';
-import MoodTracker from './components/MoodTracker';
-import Reminders from './components/Reminders';
-import Recognition from './components/Recognition';
-import MusicTherapy from './components/MusicTherapy';
-import VoiceNotes from './components/VoiceNotes';
->>>>>>> a2250ab7805a9b0da3b9bb48fb413b299026050f
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from './context/AuthContext';
-import Dashboard from './components/Dashboard';
-import Medication from './components/Medication';
-import Albums from './components/Albums';
+
+// Screens
 import Home from './components/Home';
-import Settings from './components/settings';
+import Dashboard from './components/Dashboard';
 import Recognition from './components/Recognition';
 import Safety from './components/Safety';
+import Medication from './components/Medication';
 import Chat from './components/Chat';
 import MoodTracker from './components/MoodTracker';
 import Reminders from './components/Reminders';
@@ -35,13 +17,27 @@ import Activities from './components/Activities';
 import Schedule from './components/Schedule';
 import QuickActions from './components/QuickActions';
 import Tasks from './components/Tasks';
+import Albums from './components/Albums';
 import Journal from './components/journal';
-import AuthModal from './pages/AuthModel';
+import Settings from './components/settings';
+
+// Modal
+import {AuthModal} from './components/AuthModel';
 
 function App() {
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
+
   return (
     <AuthProvider>
       <BrowserRouter>
+        {/* Optional: Button to open modal — place anywhere, remove if not needed */}
+        <button
+          onClick={() => setIsAuthOpen(true)}
+          className="fixed bottom-5 right-5 bg-purple-600 text-white px-4 py-2 rounded-xl shadow-md hover:bg-purple-700 z-50"
+        >
+          Sign In
+        </button>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -61,7 +57,9 @@ function App() {
           <Route path="/journal" element={<Journal />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
-        <AuthModal />
+
+        {/* Auth Modal with open state and close handler */}
+        <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
       </BrowserRouter>
     </AuthProvider>
   );

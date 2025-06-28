@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { UserButton } from '@clerk/clerk-react';
-import { Brain, Home, Camera, Map, Gamepad2, MessageCircle, Pill, Smile, Clock, Settings, Music, NotebookIcon } from 'lucide-react';
+import { Brain, Home, Camera, Map, Gamepad2, MessageCircle, Pill, Smile, Clock, Settings, Music, NotebookIcon, HomeIcon } from 'lucide-react';
 
 export default function Sidebar() {
   const location = useLocation();
@@ -18,6 +18,8 @@ export default function Sidebar() {
     { icon: Clock, label: 'Reminders', id: 'reminders', path: '/reminders', gradient: 'from-pink-500 to-fuchsia-400' },
     { icon: Music, label: 'Music Therapy', id: 'music', path: '/music-therapy', gradient: 'from-fuchsia-400 to-pink-400' },
     { icon: Settings, label: 'Settings', id: 'settings', path: '/settings', gradient: 'from-gray-400 to-pink-300' },
+    { icon: HomeIcon, label: 'Go to back to Home', id: 'reminders', path: '/', gradient: 'from-pink-500 to-fuchsia-400' },
+
   ];
 
   return (

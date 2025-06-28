@@ -269,9 +269,9 @@ const Home = () => {
     <img src="/placeholder.svg" alt="Logo" className="h-12" />
     <div id="nav-part2" className="flex items-center gap-[1vw]">
       <Link to="/signup">
-      <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+      {/* <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
                 Sign In
-              </button>
+              </button> */}
       </Link>
       <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
         <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
