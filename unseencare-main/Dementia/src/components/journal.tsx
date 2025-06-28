@@ -42,14 +42,7 @@ export default function Journal() {
       timestamp: '3 days ago, 7:45 PM',
       type: 'text'
     },
-    {
-      id: '4',
-      title: "Doctor's Appointment",
-      content: '',
-      timestamp: 'Last week, 11:20 AM',
-      type: 'voice',
-      voiceDuration: '1:24'
-    }
+   
   ]);
 
   const [stats, setStats] = useState({
