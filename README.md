@@ -1,6 +1,7 @@
 # 🌿 UNSEEN CARE
 
-![Unseen Care Logo](./WhatsApp%20Image%202025-06-28%20at%203.50.30%20PM.jpeg)
+![Unseen Care Logo](./UNSEENCARE.jpeg)
+
 
 ---
 
