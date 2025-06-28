@@ -366,10 +366,15 @@ const Home = () => {
               <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
                 Sign In
               </button>
+              <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                SUbscribe
+              </button>
               <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
-                <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
-                  Contact
-                </a>
+                <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                Contact
+              </button>
+              </button>
               </h4>
             </div>
             <h3 className="hidden px-5 py-3 border border-[#ffffff3c] rounded-full text-white text-sm font-light cursor-pointer" onClick={toggleMenu}>
