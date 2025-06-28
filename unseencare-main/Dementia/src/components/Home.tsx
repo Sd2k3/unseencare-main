@@ -580,8 +580,9 @@ const Home = () => {
       <div id="footer" className="h-[105vh] w-full bg-black text-white fixed bottom-0 z-[9] flex justify-end flex-col p-[1vw_3vw]">
         <div id="footer-div" className="h-[20vh] w-full bg-red-500" />
         <h1 className="text-[23vw] bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-200 animate-gradient-move">
-          UnseenCare
+          UnseenCare 
         </h1>
+        <h4> Made by team Accers</h4>
         <div id="footer-bottom" className="border-t border-[#dadada] h-[10vh] w-full" />
       </div>
     </div>
