@@ -28,7 +28,6 @@ import {
   Upload,
   Video,
 } from "lucide-react"
-
 declare global {
   interface Window {
     chatbase?: {
@@ -56,6 +55,7 @@ interface Caregiver {
   lastActive: string
   status: "active" | "pending" | "inactive"
 }
+
 
 const PhotoCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -95,7 +95,7 @@ const PhotoCarousel: React.FC = () => {
 
     return () => clearInterval(interval)
   }, [photos.length])
-
+  
  useEffect(() => {
     const initializeChatbase = () => {
       if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
@@ -146,6 +146,7 @@ const PhotoCarousel: React.FC = () => {
       window.removeEventListener("load", initializeChatbase);
     };
   }, []);
+
   return (
     <div className="relative h-96 overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 rounded-3xl border border-pink-200/50 shadow-xl mb-8 animate-fade-in">
       {/* Background Pattern */}
