@@ -78,14 +78,14 @@ export default function Recognition() {
       {/* Animated Background Particles */}
       <Sidebar/>  
       
-      <div className="max-w-7xl mx-auto ml-72">
+      <div className="max-w-7xl mx-auto ml-">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600">
+          <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-60 0">
             Smart Recognition Technology
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -94,7 +94,7 @@ export default function Recognition() {
         </motion.div>
 
         {/* Main Recognition Sections */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 ml-80">
           {/* Face Recognition Section */}
           {/* Face Recognition Section */}
 <motion.div
