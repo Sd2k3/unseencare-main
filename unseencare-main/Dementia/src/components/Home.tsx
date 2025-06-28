@@ -401,14 +401,7 @@ const Home = () => {
             <div id="hero-3" className="h-[30vw] w-[30vw] rounded-full absolute bg-gradient-to-br from-[#fe320a] to-[#ff5c0b] blur-[25px]" />
           </div>
 
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            className="relative rounded-3xl mt-[4vw] w-full transition-all duration-400 hover:scale-102"
-          >
-            <source src="/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4" />
-          </video>
+         
         </div>
 
         {/* Page 2 - Moving Text Section */}
