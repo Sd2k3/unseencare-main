@@ -18,6 +18,15 @@ type LocomotiveScrollType = {
   update: () => void;
   destroy: () => void;
 };
+  declare global {
+  interface Window {
+    chatbase?: {
+      q?: any[];
+      (method: string, ...args: any[]): void;
+      [key: string]: any;
+    };
+  }
+}
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,6 +34,57 @@ const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
   const locomotiveScrollRef = useRef<LocomotiveScrollType | null>(null);
 
+
+ useEffect(() => {
+    const initializeChatbase = () => {
+      if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
+        window.chatbase = (...args: any[]) => {
+          if (!window.chatbase?.q) {
+            window.chatbase.q = [];
+          }
+          window.chatbase.q?.push(args);
+        };
+
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") {
+              return target.q;
+            }
+            return (...args: any[]) => {
+              if (typeof target === 'function') {
+                return (target as any)(prop, ...args);
+              }
+            };
+          }
+        });
+      }
+
+      const onLoad = () => {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "jYpti2EL-CsGzwxr1Hpre";
+        script.setAttribute("domain", "www.chatbase.co");
+        script.defer = true;
+        document.body.appendChild(script);
+      };
+
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    };
+
+    initializeChatbase();
+
+    return () => {
+      const chatbaseScript = document.getElementById("jYpti2EL-CsGzwxr1Hpre");
+      if (chatbaseScript) {
+        chatbaseScript.remove();
+      }
+      window.removeEventListener("load", initializeChatbase);
+    };
+  }, []);
   // Initialize animations and effects
   useEffect(() => {
     // Loader animation
