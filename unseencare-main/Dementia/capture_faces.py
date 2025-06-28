@@ -7,7 +7,6 @@ import numpy as np
 import pickle
 import albumentations as A
 from tqdm import tqdm
-from google.cloud import storage
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QLabel, QPushButton, QLineEdit, QVBoxLayout, QHBoxLayout, QWidget, QProgressBar,
     QComboBox, QMessageBox, QFrame, QDialog, QFileDialog
@@ -19,40 +18,31 @@ from threading import Thread
 import io
 
 # Constants
-BUCKET_NAME = "neuronest-bucket"  # Replace with your bucket name
-MODEL_PATH = "models/face_encodings.pkl"
+MODEL_DIR = "models"
+MODEL_PATH = os.path.join(MODEL_DIR, "face_encodings.pkl")
+DATA_DIR = "face_data"
 
-if not os.path.exists("models"):
-    os.makedirs("models")
+if not os.path.exists(MODEL_DIR):
+    os.makedirs(MODEL_DIR)
+if not os.path.exists(DATA_DIR):
+    os.makedirs(DATA_DIR)
 
-# Initialize Google Cloud Storage client
-storage_client = storage.Client.from_service_account_json("service-account-key.json")
-bucket = storage_client.bucket(BUCKET_NAME)
-
-def upload_to_cloud(image, destination_blob_name):
-    """Uploads an image to Google Cloud Storage."""
+def save_to_local(image, person_name, image_number):
+    """Saves an image to local storage."""
     try:
         if image is None or not isinstance(image, np.ndarray):
-            print("Error: Invalid image provided for upload.")
-            return
+            print("Error: Invalid image provided for saving.")
+            return False
 
-        _, img_encoded = cv2.imencode(".jpg", image)
-        if img_encoded is None:
-            print("Error: Failed to encode image.")
-            return
-
-        img_bytes = io.BytesIO(img_encoded.tobytes())
-        blob = bucket.blob(destination_blob_name)
-        blob.upload_from_file(img_bytes, content_type="image/jpeg")
-        print(f"Image uploaded to {destination_blob_name}.")
+        person_dir = os.path.join(DATA_DIR, person_name)
+        os.makedirs(person_dir, exist_ok=True)
+        
+        save_path = os.path.join(person_dir, f"{image_number}.jpg")
+        cv2.imwrite(save_path, image)
+        return True
     except Exception as e:
-        print(f"Error uploading image: {e}")
-
-def download_from_cloud(blob_name, destination_file_name):
-    """Downloads a file from Google Cloud Storage."""
-    blob = bucket.blob(blob_name)
-    blob.download_to_filename(destination_file_name)
-    print(f"File {blob_name} downloaded to {destination_file_name}.")
+        print(f"Error saving image: {e}")
+        return False
 
 def adjust_brightness(image, target_brightness=128):
     """Adjust image brightness to a target level."""
@@ -111,14 +101,14 @@ class CaptureThread(QThread):
             self.update_status.emit("Error: Could not open webcam.")
             return
 
-        # Upload details to cloud
-        details_blob_name = f"{self.person_name}/details.txt"
-        details_content = f"Name: {self.person_name}\nDetails: {self.person_details}"
-        blob = bucket.blob(details_blob_name)
-        blob.upload_from_string(details_content)
+        # Save details locally
+        details_path = os.path.join(DATA_DIR, self.person_name, "details.txt")
+        os.makedirs(os.path.dirname(details_path), exist_ok=True)
+        with open(details_path, "w") as f:
+            f.write(f"Name: {self.person_name}\nDetails: {self.person_details}")
 
         count = 0
-        total_faces = 100
+        total_faces = 50
         face_detection_interval = 5
         frame_count = 0
 
@@ -135,7 +125,7 @@ class CaptureThread(QThread):
                 if face_locations:
                     for top, right, bottom, left in face_locations:
                         aligned_face = align_face(frame, (top, right, bottom, left))
-                        Thread(target=upload_to_cloud, args=(aligned_face, f"{self.person_name}/{count + 1}.jpg"), daemon=True).start()
+                        Thread(target=save_to_local, args=(aligned_face, self.person_name, count + 1), daemon=True).start()
                         cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                         count += 1
                         self.update_progress.emit(count)
@@ -350,27 +340,29 @@ class FaceCaptureApp(QMainWindow):
         known_face_encodings = []
         known_face_names = []
 
-        # List all persons in the bucket
-        blobs = bucket.list_blobs(prefix="")
-        persons = set()
-        for blob in blobs:
-            if "/" in blob.name:
-                persons.add(blob.name.split("/")[0])
+        # List all persons in the data directory
+        persons = [d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d))]
+        if not persons:
+            QMessageBox.warning(self, "Training Error", "No person data found to train.")
+            return
 
-        total_images = sum([len(list(bucket.list_blobs(prefix=f"{person}/"))) for person in persons])
-        progress_bar = tqdm(total=total_images, desc="Training Model", unit="image")
+        total_images = sum([len([f for f in os.listdir(os.path.join(DATA_DIR, person)) if f.endswith(('.jpg', '.png'))]) for person in persons])
+        if total_images == 0:
+            QMessageBox.warning(self, "Training Error", "No face images found to train.")
+            return
+
+        progress = QProgressBar()
+        progress.setMaximum(total_images)
+        progress.setValue(0)
 
         for person_name in persons:
-            blobs = bucket.list_blobs(prefix=f"{person_name}/")
-            for blob in blobs:
-                if blob.name.endswith((".jpg", ".png")):
-                    # Download image from cloud
-                    local_path = os.path.join("temp", blob.name)
-                    os.makedirs(os.path.dirname(local_path), exist_ok=True)
-                    blob.download_to_filename(local_path)
-
-                    # Process image
-                    image = face_recognition.load_image_file(local_path)
+            person_dir = os.path.join(DATA_DIR, person_name)
+            image_files = [f for f in os.listdir(person_dir) if f.endswith(('.jpg', '.png'))]
+            
+            for image_file in image_files:
+                image_path = os.path.join(person_dir, image_file)
+                try:
+                    image = face_recognition.load_image_file(image_path)
                     augmented_image = augment_image(image)
                     face_encodings = face_recognition.face_encodings(augmented_image, num_jitters=10)
 
@@ -378,25 +370,19 @@ class FaceCaptureApp(QMainWindow):
                         known_face_encodings.append(encoding)
                         known_face_names.append(person_name)
 
-                    progress_bar.update(1)
-                    os.remove(local_path)  # Clean up
-
-        progress_bar.close()
+                    progress.setValue(progress.value() + 1)
+                except Exception as e:
+                    print(f"Error processing {image_path}: {e}")
 
         if not known_face_encodings:
-            print("Error: No faces found for training.")
+            QMessageBox.warning(self, "Training Error", "No valid faces found for training.")
             return
 
         # Save model locally
         with open(MODEL_PATH, "wb") as f:
             pickle.dump((known_face_encodings, known_face_names), f)
 
-        # Upload model to cloud
-        upload_to_cloud(MODEL_PATH, "face_encodings.pkl")
-
-        print(f"Model trained and saved to {MODEL_PATH}!")
-        print(f"Total faces encoded: {len(known_face_encodings)}")
-        QMessageBox.information(self, "Success", "Model trained and saved successfully!")
+        QMessageBox.information(self, "Success", f"Model trained with {len(known_face_encodings)} faces from {len(persons)} persons!")
 
     def start_recognition(self):
         dialog = RecognitionSourceDialog(self)
@@ -409,11 +395,11 @@ class FaceCaptureApp(QMainWindow):
                 self.start_upload_recognition()
 
     def start_webcam_recognition(self):
-        # Download the model from cloud
-        if not os.path.exists(MODEL_PATH):
-            download_from_cloud("face_encodings.pkl", MODEL_PATH)
-
         # Load face encodings
+        if not os.path.exists(MODEL_PATH):
+            QMessageBox.warning(self, "Error", "No trained model found. Please train the model first.")
+            return
+
         with open(MODEL_PATH, "rb") as f:
             known_face_encodings, known_face_names = pickle.load(f)
 
@@ -449,7 +435,7 @@ class FaceCaptureApp(QMainWindow):
                     face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
                     confidence = f"Confidence: {1 - face_distances[first_match_index]:.2f}"
                     recognized_name = name
-                    show_popup = True  # Enable popup when a person is recognized
+                    show_popup = True
 
                 top *= 4
                 right *= 4
@@ -461,7 +447,7 @@ class FaceCaptureApp(QMainWindow):
 
             # Show popup if a person is recognized
             if show_popup and recognized_name:
-                frame = show_details_popup(frame, recognized_name)
+                frame = self.show_details_popup(frame, recognized_name)
 
             cv2.imshow("Face Recognition - Press Q to Quit", frame)
 
@@ -481,11 +467,11 @@ class FaceCaptureApp(QMainWindow):
     def start_upload_recognition(self):
         file_name, _ = QFileDialog.getOpenFileName(self, "Open Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp)")
         if file_name:
-            # Download the model from cloud
-            if not os.path.exists(MODEL_PATH):
-                download_from_cloud("face_encodings.pkl", MODEL_PATH)
-
             # Load face encodings
+            if not os.path.exists(MODEL_PATH):
+                QMessageBox.warning(self, "Error", "No trained model found. Please train the model first.")
+                return
+
             with open(MODEL_PATH, "rb") as f:
                 known_face_encodings, known_face_names = pickle.load(f)
 
@@ -512,9 +498,38 @@ class FaceCaptureApp(QMainWindow):
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
+    def show_details_popup(self, frame, person_name):
+        details = self.load_person_details(person_name)
+        # Create a black overlay
+        overlay = frame.copy()
+        cv2.rectangle(overlay, (0, 0), (frame.shape[1], frame.shape[0]), (0, 0, 0), -1)
+        cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+
+        # Display the details on the frame
+        y = 50
+        for line in details.split("\n"):
+            cv2.putText(frame, line, (50, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+            y += 40
+
+        # Add a close button
+        cv2.putText(frame, "Press 'C' to Close", (50, y + 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
+        return frame
+
+    def load_person_details(self, person_name):
+        """Load person details from local storage."""
+        try:
+            details_path = os.path.join(DATA_DIR, person_name, "details.txt")
+            if os.path.exists(details_path):
+                with open(details_path, "r") as f:
+                    return f.read()
+            return "No details found."
+        except Exception as e:
+            print(f"Error loading person details: {e}")
+            return "Error loading details."
+
     def list_trained_persons(self):
-        """List all persons who have trained the model."""
-        persons = list_persons_in_bucket()
+        """List all persons who have trained data."""
+        persons = [d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d))]
         if not persons:
             QMessageBox.information(self, "Trained Persons", "No persons have been trained yet.")
             return
@@ -522,7 +537,7 @@ class FaceCaptureApp(QMainWindow):
         details = "Trained Persons:\n\n"
         for person in persons:
             details += f"{person}\n"
-            details += load_person_details(person) + "\n\n"
+            details += self.load_person_details(person) + "\n\n"
 
         QMessageBox.information(self, "Trained Persons", details)
 
@@ -530,44 +545,6 @@ class FaceCaptureApp(QMainWindow):
         if hasattr(self, 'capture_thread'):
             self.capture_thread.stop()
         event.accept()
-
-def show_details_popup(frame, person_name):
-    details = load_person_details(person_name)
-    # Create a black overlay
-    overlay = frame.copy()
-    cv2.rectangle(overlay, (0, 0), (frame.shape[1], frame.shape[0]), (0, 0, 0), -1)
-    cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
-
-    # Display the details on the frame
-    y = 50
-    for line in details.split("\n"):
-        cv2.putText(frame, line, (50, y), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
-        y += 40
-
-    # Add a close button
-    cv2.putText(frame, "Press 'C' to Close", (50, y + 40), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
-    return frame
-
-def load_person_details(person_name):
-    """Load person details from cloud."""
-    try:
-        blob_name = f"{person_name}/details.txt"
-        blob = bucket.blob(blob_name)
-        if blob.exists():
-            return blob.download_as_text()
-        return "No details found."
-    except Exception as e:
-        print(f"Error loading person details: {e}")
-        return "Error loading details."
-
-def list_persons_in_bucket():
-    """List all persons in the bucket."""
-    blobs = bucket.list_blobs(prefix="")
-    persons = set()
-    for blob in blobs:
-        if "/" in blob.name:
-            persons.add(blob.name.split("/")[0])
-    return list(persons)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
