@@ -8,7 +8,6 @@ import 'swiper/css/effect-coverflow';
 import { Link } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-import { LayoutGrid } from './ui/layout-grid';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,104 +18,6 @@ type LocomotiveScrollType = {
   update: () => void;
   destroy: () => void;
 };
-
-const cards = [
-  {
-    id: 1,
-    content: (
-      <div className="p-4 text-white">
-        <h3 className="text-2xl font-bold mb-2">1. Epilepsy-Specific Features</h3>
-        <p className="text-sm">
-          a. Seizure Detection & Alert System
-Real-time Motion Analysis: Uses smartphone/accelerometer data or wearable devices (like smartwatches) to detect unusual movements (tonic-clonic seizures).
-
-AI-Powered Alerts: Machine learning models trained on seizure patterns trigger automatic alerts.
-
-SOS Notifications:
-
-Sends GPS location + timestamp to emergency contacts (family/caregivers).
-
-Integrates with local emergency services (if available).
-
-Post-Seizure Report: Logs duration and intensity for medical review.
-        </p>
-      </div>
-    ),
-    className: "col-span-1",
-    thumbnail: "https://plus.unsplash.com/premium_photo-1730133744149-e628388cdad5?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 2,
-    content: (
-      <div className="p-4 text-white">
-        <h3 className="text-2xl font-bold mb-2">  2. Dementia-Specific Features</h3>
-        <p className="text-sm">
-          2. Dementia-Specific Features
-a. Face & Voice Recognition
-Family Recognition: Uses smartphone camera to identify and label family members (helpful for memory loss).
-
-Voice-Activated Reminders:
-
-"Hey UnseenCare, where’s my wallet?" → Triggers Tile/BLE tracker.
-
-"Remind me to take pills at 3 PM."
-
-b. Safety Alerts
-Wandering Detection: Geofencing alerts if the user leaves a safe zone (home/care center).
-
-Fall Detection: Uses phone sensors to detect falls and notify caregivers.
-
-c. Cognitive Support
-Memory Games: Simple puzzles to slow cognitive decline.
-
-Photo-Based Reminders: "This is your granddaughter, Maya" (with labeled photos).
-        </p>
-      </div>
-    ),
-    className: "col-span-1",
-    thumbnail: "https://media.istockphoto.com/id/1168365129/photo/authentication-by-facial-recognition-concept-biometric-security-system.jpg?s=2048x2048&w=is&k=20&c=JwPYe0TPiH4JQUe5Z5g59Iq2AQE7MsW302d9YN4l4gc=",
-  },
-  {
-    id: 3,
-    content: (
-      <div className="p-4 text-white">
-        <h3 className="text-2xl font-bold mb-2">3. Speech Disorder Features</h3>
-        <p className="text-sm">
-          
-a. Speech-to-Text Assistant
-Real-Time Transcription: Converts slurred/difficult speech into text for communication.
-
-Custom Word Banks: Pre-loaded phrases for common needs (e.g., "I need water").
-
-b. Pronunciation Therapy
-AI Feedback: Analyzes speech patterns and suggests exercises (e.g., "Try saying ‘water’ slower").
-
-Augmentative & Alternative Communication (AAC): Symbol-based communication for non-verbal users.
-        </p>
-      </div>
-    ),
-    className: "col-span-1",
-    thumbnail: "https://plus.unsplash.com/premium_photo-1683140661365-f72ac5f58035?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
-
-const slides = [
-  {
-    title: "Stay Safe",
-    button: "Learn More",
-    src: "/images/safety.png",
-  },
-  {
-    title: "Track Medication",
-    button: "View Schedule",
-    src: "/images/medication.png",
-  },
-  {
-    title: "Emergency Help",
-    button: "Call Now",
-    src: "/images/emergency.png",
-  },
-];
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -149,8 +50,10 @@ const Home = () => {
           tablet: { smooth: true }
         });
 
+        // Update ScrollTrigger when Locomotive Scroll updates
         locomotiveScrollRef.current?.on('scroll', ScrollTrigger.update);
 
+        // Tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
         ScrollTrigger.scrollerProxy(mainRef.current, {
           scrollTop(value) {
             return arguments.length 
@@ -168,6 +71,7 @@ const Home = () => {
           pinType: mainRef.current?.style.transform ? "transform" : "fixed"
         });
 
+        // Each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
         ScrollTrigger.addEventListener('refresh', () => locomotiveScrollRef.current?.update());
         ScrollTrigger.refresh();
       }
@@ -191,6 +95,7 @@ const Home = () => {
         delay: 0.3
       });
 
+      // Hero shapes animation
       gsap.to("#hero-2", {
         x: "-20%",
         y: "30%",
@@ -360,55 +265,84 @@ const Home = () => {
       <div id="main" ref={mainRef} className="relative z-10 bg-black">
         {/* Page 1 - Hero Section */}
         <div id="page1" className="min-h-screen w-full bg-black relative px-[2vw]">
-          <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
-            <img src="/placeholder.svg" alt="Logo" className="h-12" />
-            <div id="nav-part2" className="flex items-center gap-[1vw]">
-              <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+  <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
+    <img src="/placeholder.svg" alt="Logo" className="h-12" />
+    <div id="nav-part2" className="flex items-center gap-[1vw]">
+      <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
                 Sign In
               </button>
-              <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
-                <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
-                  Contact
-                </a>
-              </h4>
-            </div>
-            <h3 className="hidden px-5 py-3 border border-[#ffffff3c] rounded-full text-white text-sm font-light cursor-pointer" onClick={toggleMenu}>
-              Menu
-            </h3>
-          </nav>
+      <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
+        <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
+          Contact
+        </a>
+      </h4>
+    </div>
+    <h3 className="hidden px-5 py-3 border border-[#ffffff3c] rounded-full text-white text-sm font-light cursor-pointer" onClick={toggleMenu}>
+      Menu
+    </h3>
+  </nav>
 
-          <div id="center" className="h-[65vh] w-full flex items-end justify-between border-b border-[#ffffff3c] pb-[2.5vw]">
-            <div id="left" className="w-[25vw]">
-              <h3 className="text-[1.8vw] leading-[2vw] text-[#cccccc] animate-fadeInUp">
-                UnseenCare is a purpose-driven platform dedicated to supporting minds and voices often overlooked — offering compassionate, integrated solutions for dementia, speech disorders, and epilepsy.
-              </h3>
-            </div>
-            <div id="right" className="text-right">
-              <h1 className="text-[10vw] leading-[8vw] bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-fadeInUp animate-gradient-move">
-                Understanding<br />
-                Unseen<br />
-                Conditions
-              </h1>
-            </div>
-          </div>
+  <div id="center" className="h-[65vh] w-full flex items-end justify-between border-b border-[#ffffff3c] pb-[2.5vw]">
+    <div id="left" className="w-[25vw]">
+      <h3 className="text-[1.8vw] leading-[2vw] text-[#cccccc] animate-fadeInUp">
+        UnseenCare is a purpose-driven platform dedicated to supporting minds and voices often overlooked — offering compassionate, integrated solutions for dementia, speech disorders, and epilepsy.
+      </h3>
+    </div>
+    <div id="right" className="text-right">
+      <h1 className="text-[10vw] leading-[8vw] bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-[length:200%_200%] animate-fadeInUp animate-gradient-move">
+        Understanding<br />
+        Unseen<br />
+        Conditions
+      </h1>
+    </div>
+  </div>
 
-          <div id="hero-shape" className="absolute w-[46vw] h-[36vw] right-0 top-[65vh] pointer-events-none">
-            <div id="hero-3" className="h-[30vw] w-[30vw] rounded-full absolute bg-gradient-to-br from-[#fe320a] to-[#ff5c0b] blur-[25px]" />
-          </div>
+  <div id="hero-shape" className="absolute w-[46vw] h-[36vw] right-0 top-[65vh] pointer-events-none">
+    {/* <div id="hero-1" className="h-full w-full rounded-tl-full rounded-bl-full bg-[#fe320a] blur-[15px] absolute" /> */}
+    {/* <div id="hero-2" className="h-[30vw] w-[30vw] rounded-full absolute bg-gradient-to-br from-[#fe320a] to-[#ff5c0b] blur-[25px]" /> */}
+    <div id="hero-3" className="h-[30vw] w-[30vw] rounded-full absolute bg-gradient-to-br from-[#fe320a] to-[#ff5c0b] blur-[25px]" />
+  </div>
 
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            className="relative rounded-3xl mt-[4vw] w-full transition-all duration-400 hover:scale-102"
-          >
-            <source src="/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4" />
-          </video>
-        </div>
-
+  {/* <video 
+    autoPlay 
+    loop 
+    muted 
+    className="relative rounded-3xl mt-[4vw] w-full transition-all duration-400 hover:scale-102"
+  >
+    <source src="/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4" />
+  </video> */}
+</div>
         {/* Page 2 - Moving Text Section */}
         <div id="page2" className="min-h-screen w-full bg-black py-[8vw] relative">
           <div id="moving-text" className="overflow-x-auto whitespace-nowrap scrollbar-hide">
+            <div className="con inline-block whitespace-nowrap">
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                DEMENTIA
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                EPILEPSY
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                SPEECH DISORDER
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+            </div>
+            <div className="con inline-block whitespace-nowrap">
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                DEMENTIA
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                EPILEPSY
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+              <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
+                SPEECH DISORDER
+              </h1>
+              <div id="gola" className="h-[70px] w-[70px] rounded-full inline-block bg-[#fe320a] mx-[2vw] my-[1vw] animate-pulse" />
+            </div>
             <div className="con inline-block whitespace-nowrap">
               <h1 className="text-[9vw] inline-block bg-gradient-to-r from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-100">
                 DEMENTIA
@@ -429,7 +363,7 @@ const Home = () => {
             <h1 className="text-[4vw] w-[60%] leading-[4vw] bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-200 animate-gradient-move">
               We are a dedicated team of healthcare professionals, researchers, and advocates committed to raising awareness and providing comprehensive support for neurological and speech disorders
             </h1>
-            <div id="bottom-part2" className="w-[20%] transition-all duration-400 hover:-translate-y-2.5 py-70 mt-32">
+            <div id="bottom-part2" className="w-[20%] transition-all duration-400 hover:-translate-y-2.5">
               <img 
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/team.jpg-UGIXrUdGvXjJhJBNNIJj9YugPP1Erh.jpeg" 
                 alt="Team" 
@@ -531,18 +465,85 @@ const Home = () => {
               </h2>
             </div>
           </div>
-          
-          {/* Layout Grid Section */}
-          <div className="w-full py-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl text-center mb-16 bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent">
-              Our Key Features
-            </h2>
-            <LayoutGrid cards={cards} />
-          </div>
         </div>
 
         {/* Page 4 - Swiper Section */}
-      
+        <div id="page4" className="min-h-screen w-full bg-black py-[8vw] px-[2vw] relative overflow-hidden">
+          <div className="swiper mySwiper w-full h-full relative z-[2] py-[50px]">
+            <div className="swiper-wrapper">
+             <Swiper
+
+            effect="coverflow"
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView="auto"
+            coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+            }}
+  modules={[EffectCoverflow]}
+  className="mySwiper w-full h-full py-[50px]"
+>
+  {/* DEMENTIA Slide */}
+  <SwiperSlide className="w-[350px] h-[500px] border-2 border-transparent transition-all duration-600 bg-gradient-to-br from-white/10 to-white/5 rounded-[25px] backdrop-blur-[20px] relative overflow-hidden hover:-translate-y-5 hover:rotate-x-5 hover:rotate-y-5 hover:scale-105 hover:border-[#fe320a] hover:shadow-[0_25px_50px_rgba(254,50,10,0.3),0_0_0_1px_rgba(254,50,10,0.2),inset_0_1px_0_rgba(255,255,255,0.1)]">
+    <div className="slide-content p-12 h-full flex flex-col justify-between relative z-[2]">
+      <h3 className="text-[2.8rem] font-bold mb-6 bg-gradient-to-br from-[#fe320a] via-[#ff5c0b] to-white bg-clip-text text-transparent animate-gradient-move">
+        DEMENTIA
+      </h3>
+      <p className="text-[#cccccc] text-[1.2rem] leading-[1.8] mb-10 opacity-90 transition-all duration-600 hover:opacity-100 hover:-translate-y-1">
+        A progressive neurological disorder affecting memory, thinking, and behavior. Our platform provides early detection tools, cognitive exercises, and family support resources.
+      </p>
+      <div className="features grid grid-cols-2 gap-3">
+        <div className="feature flex items-center gap-2 text-white text-base font-medium p-4 bg-white/10 rounded-xl border border-white/10 transition-all duration-400 hover:bg-[#fe320a]/20 hover:translate-x-2 hover:border-[#fe320a]/30 hover:shadow-[0_8px_25px_rgba(254,50,10,0.2)]">
+          Memory Assessment Tools
+        </div>
+        {/* Other feature items... */}
+      </div>
+    </div>
+  </SwiperSlide>
+
+  {/* EPILEPSY Slide */}
+  <SwiperSlide className="w-[350px] h-[500px] border-2 border-transparent transition-all duration-600 bg-gradient-to-br from-white/10 to-white/5 rounded-[25px] backdrop-blur-[20px] relative overflow-hidden hover:-translate-y-5 hover:rotate-x-5 hover:rotate-y-5 hover:scale-105 hover:border-[#fe320a] hover:shadow-[0_25px_50px_rgba(254,50,10,0.3),0_0_0_1px_rgba(254,50,10,0.2),inset_0_1px_0_rgba(255,255,255,0.1)]">
+    <div className="slide-content p-12 h-full flex flex-col justify-between relative z-[2]">
+      <h3 className="text-[2.8rem] font-bold mb-6 bg-gradient-to-br from-[#fe320a] via-[#ff5c0b] to-white bg-clip-text text-transparent animate-gradient-move">
+        EPILEPSY
+      </h3>
+      <p className="text-[#cccccc] text-[1.2rem] leading-[1.8] mb-10 opacity-90 transition-all duration-600 hover:opacity-100 hover:-translate-y-1">
+        A neurological condition characterized by recurrent seizures. We offer seizure monitoring, medication reminders, and emergency alert systems.
+      </p>
+      <div className="features grid grid-cols-2 gap-3">
+        <div className="feature flex items-center gap-2 text-white text-base font-medium p-4 bg-white/10 rounded-xl border border-white/10 transition-all duration-400 hover:bg-[#fe320a]/20 hover:translate-x-2 hover:border-[#fe320a]/30 hover:shadow-[0_8px_25px_rgba(254,50,10,0.2)]">
+          Seizure Detection
+        </div>
+        {/* Other feature items... */}
+      </div>
+    </div>
+  </SwiperSlide>
+
+  {/* SPEECH DISORDER Slide */}
+  <SwiperSlide className="w-[350px] h-[500px] border-2 border-transparent transition-all duration-600 bg-gradient-to-br from-white/10 to-white/5 rounded-[25px] backdrop-blur-[20px] relative overflow-hidden hover:-translate-y-5 hover:rotate-x-5 hover:rotate-y-5 hover:scale-105 hover:border-[#fe320a] hover:shadow-[0_25px_50px_rgba(254,50,10,0.3),0_0_0_1px_rgba(254,50,10,0.2),inset_0_1px_0_rgba(255,255,255,0.1)]">
+    <div className="slide-content p-12 h-full flex flex-col justify-between relative z-[2]">
+      <h3 className="text-[2.8rem] font-bold mb-6 bg-gradient-to-br from-[#fe320a] via-[#ff5c0b] to-white bg-clip-text text-transparent animate-gradient-move">
+        SPEECH DISORDER
+      </h3>
+      <p className="text-[#cccccc] text-[1.2rem] leading-[1.8] mb-10 opacity-90 transition-all duration-600 hover:opacity-100 hover:-translate-y-1">
+        Communication challenges affecting speech clarity and language processing. Our AI-powered tools provide personalized therapy and progress tracking.
+      </p>
+      <div className="features grid grid-cols-2 gap-3">
+        <div className="feature flex items-center gap-2 text-white text-base font-medium p-4 bg-white/10 rounded-xl border border-white/10 transition-all duration-400 hover:bg-[#fe320a]/20 hover:translate-x-2 hover:border-[#fe320a]/30 hover:shadow-[0_8px_25px_rgba(254,50,10,0.2)]">
+          Speech Analysis
+        </div>
+        {/* Other feature items... */}
+      </div>
+    </div>
+  </SwiperSlide>
+</Swiper>
+            </div>
+          </div>
+        </div>
 
         {/* Page 5 - Cure Buttons */}
         <div id="page5" className="min-h-screen w-full bg-black py-[8vw] px-[2vw] flex items-center justify-center">
@@ -551,17 +552,19 @@ const Home = () => {
               Access Our Solutions
             </h2>
             <div className="buttons-container grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-              <Link to="/dashboard" className="cure-btn dementia-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#a855f7] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+              <a  className="cure-btn dementia-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#a855f7] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                <Link to="/dashboard" >
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   DEMENTIA CURE
                 </h3>
-              </Link>
-              <a href="#" rel="noopener noreferrer" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+                </Link>
+              </a>
+              <a href="#" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   EPILEPSY CURE
                 </h3>
               </a>
-              <a href="#"  rel="noopener noreferrer" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+              <a href="#" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   SPEECH DISORDER CURE
                 </h3>
@@ -580,9 +583,8 @@ const Home = () => {
       <div id="footer" className="h-[105vh] w-full bg-black text-white fixed bottom-0 z-[9] flex justify-end flex-col p-[1vw_3vw]">
         <div id="footer-div" className="h-[20vh] w-full bg-red-500" />
         <h1 className="text-[23vw] bg-gradient-to-br from-white via-[#fe320a] to-white bg-clip-text text-transparent bg-size-200-200 animate-gradient-move">
-          UnseenCare 
+          UnseenCare
         </h1>
-        <h4> Made by team Accers</h4>
         <div id="footer-bottom" className="border-t border-[#dadada] h-[10vh] w-full" />
       </div>
     </div>

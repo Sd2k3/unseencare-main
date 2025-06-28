@@ -5,7 +5,7 @@ import QuickActions from './components/QuickActions';
 import Schedule from './components/Schedule';
 import Chat from './components/Chat';
 import Activities from './components/Activities';
-import Journal from './components/Journal';
+import Journal from './components/journal';
 import Safety from './components/Safety';
 import Tasks from './components/Tasks';
 import MoodTracker from './components/MoodTracker';
