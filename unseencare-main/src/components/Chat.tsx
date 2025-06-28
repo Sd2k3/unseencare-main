@@ -9,7 +9,6 @@ export default function Chat() {
   const dummyNearbyPatients = [
     { id: 1, name: 'John Doe', distance: '0.5 miles', lastActive: '5 min ago' },
     { id: 2, name: 'Jane Smith', distance: '1.2 miles', lastActive: '15 min ago' },
-    { id: 3, name: 'Robert Johnson', distance: '2.0 miles', lastActive: '1 hour ago' },
   ];
 
   return (<>
