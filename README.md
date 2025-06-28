@@ -118,7 +118,7 @@
 
 </div>
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,14,16&height=2&section=header&text=&fontSize=0"/>
+<img width="100%" src="https://capsule-render.vercel.vercel.app/api?type=rect&color=gradient&customColorList=12,14,16&height=2&section=header&text=&fontSize=0"/>
 
 ---
 
@@ -345,6 +345,191 @@
 - **🎯 Personalized Encouragement**: "Your health journey is unique, every small step counts"
 - **💖 Emotional Wellness**: Focus on mental health alongside physical management
 - **🌈 Positive Reinforcement**: Celebrating progress and building confidence
+
+</div>
+
+### 🔬 **IoT Seizure Detection Hardware**
+<div style="background: linear-gradient(135deg, #E6E6FA, #DDA0DD); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-29%20at%2000.12.53_6618e4ff.jpg-qWfuwQLenIXyKpxgjAizILH9XbO8mk.jpeg" alt="Real-time Sensor Data Monitoring" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📊 Real-Time Multi-Sensor Monitoring System**
+- **📈 6-Axis Motion Tracking**: Simultaneous monitoring of accelerometer (AX, AY, AZ) and gyroscope (GX, GY, GZ) data
+- **⚡ Seizure Pattern Detection**: Real-time identification of abnormal movement patterns with significant data spikes
+- **📡 High-Speed Data Transmission**: 9600 baud rate communication for instant data processing
+- **🔄 Continuous Monitoring**: 24/7 sensor data collection with interpolation capabilities
+- **🚨 Automated Alert Triggers**: Immediate detection of seizure-like movement patterns
+- **📊 Professional Interface**: COM4 monitoring system with STOP/START controls
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-29%20at%2000.13.04_e220e11c.jpg-LrhoCu5FkHJktmQnfFEZS0GZ7CQnRC.jpeg" alt="IoT Hardware Setup" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🛠️ Custom Hardware Implementation**
+- **🔧 Arduino-Based System**: Professional-grade microcontroller for reliable sensor processing
+- **📟 UnseenCare Sensor Module**: Custom-branded sensor integration for precise motion detection
+- **🔊 Audio Alert System**: Built-in buzzer/speaker for immediate local notifications
+- **🌈 Multi-Wire Connectivity**: Color-coded wiring system (red, blue, yellow, green, white) for organized connections
+- **📋 Breadboard Integration**: Flexible prototyping setup for sensor calibration and testing
+- **⚡ Real-Time Processing**: Instant data analysis and seizure pattern recognition
+
+**🎯 Key Technical Features**
+- **📱 Wearable Design**: Compact, patient-friendly form factor for continuous monitoring
+- **🔋 Low Power Consumption**: Optimized for extended battery life during 24/7 operation
+- **📡 Wireless Connectivity**: Real-time data transmission to mobile app and caregiver dashboard
+- **🧠 Machine Learning Integration**: AI-powered seizure detection algorithms processing sensor data
+- **🆘 Emergency Response**: Automatic alert system activation upon seizure detection
+
+</div>
+
+---
+
+## 🧠 CareCompanion: Advanced Dementia Support Platform
+
+<div align="center" style="background: linear-gradient(135deg, #FFDAB9, #PEACHPUFF); padding: 25px; border-radius: 20px; margin: 20px 0;">
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=2000&pause=1000&color=FF1493&center=true&vCenter=true&width=700&lines=CareCompanion+Support+Platform+%F0%9F%A7%A0;Comprehensive+Dementia+Management+%F0%9F%A9%BA;AI-Powered+Cognitive+Enhancement+%F0%9F%A4%96" alt="CareCompanion Typing" />
+
+### 🎯 **Complete Dementia Care Ecosystem**
+*Empowering individuals and families with intelligent, compassionate dementia support through advanced AI technology*
+
+<img src="https://media.giphy.com/media/3oKIPEqDGUULpEU0aQ/giphy.gif" width="50" alt="Brain Animation"/>
+
+</div>
+
+### 🧩 **Cognitive Training Games**
+<div style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.24.08_b17c257e.jpg-JRsA6uFAimS5gMS65fRYw0d09qZq7w.jpeg" alt="Cognitive Games Dashboard" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🎮 Comprehensive Brain Training Suite**
+- **🃏 Memory Match Game**: Match pairs of cards to improve memory (75% progress, Easy level)
+- **🔤 Word Association**: Solve word puzzles with helpful hints (50% progress, Medium difficulty)
+- **🔢 Pattern Sequence**: Remember and repeat growing sequences (30% progress, Medium level)
+- **🔺 Shape Recognition**: Match shapes and identify patterns (60% progress, Easy level)
+- **➕ Simple Math**: Practice basic arithmetic skills (40% progress, Medium difficulty)
+- **📊 Progress Tracking**: Individual progress monitoring for each cognitive domain
+
+</div>
+
+### 🤖 **Smart Recognition Technology**
+<div style="background: linear-gradient(135deg, #FFDAB9, #PEACHPUFF); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.17.40_be3596fc.jpg-ivNF7ZYyMJjQ7GSdCvh2aRPNCX3t1Z.jpeg" alt="Smart Recognition Technology" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🔍 Advanced AI Recognition Systems**
+- **👤 Face Recognition**: Advanced facial recognition system that helps identify familiar faces and maintain social connections
+- **📱 Train Model**: Personalized face recognition training for family members and caregivers
+- **🎯 Object Recognition**: Advanced object detection system that identifies objects in real-time and provides contextual information
+- **🚀 Start Detection**: Instant object identification for daily living assistance
+- **🧠 AI Enhancement**: Experience the power of advanced AI recognition systems designed to enhance daily life and safety
+
+</div>
+
+### 🛡️ **Safety Monitoring & GPS Tracking**
+<div style="background: linear-gradient(135deg, #F8BBD9, #E4C1F9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.23.39_db9a2d73.jpg-xfkRuzm1MJzVIhz2hV3IEHeQkyfNo1.jpeg" alt="Safety Monitoring System" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📍 Comprehensive Location & Safety Management**
+- **🗺️ Real-Time GPS Tracking**: Monitor location with live map integration and safe zone alerts
+- **✅ Safe Zone Status**: Current status showing "In Safe Zone" with visual confirmation
+- **📱 Multi-Device Tracking**: Locate Phone, Locate Tracker, and Safe Zones management
+- **🚨 Emergency Contacts**: Quick access to Local Police (911), Primary Caregiver, Family Doctor, and Emergency Contact
+- **🆘 Emergency Alert/SOS**: One-touch emergency alert system with immediate response
+- **🧭 Navigation Support**: Built-in navigation assistance for safe travel
+
+</div>
+
+### 💊 **Medication Management System**
+<div style="background: linear-gradient(135deg, #DDA0DD, #E6E6FA); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.26.09_e6d5e460.jpg-XLrhtkqSBAY1bVifiy0U7D3aE8aBo0.jpeg" alt="Medication Management" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**⏰ Smart Medication Scheduling & Tracking**
+- **📊 Daily Progress**: Track medication adherence with 33% daily completion rate
+- **✅ Completed Doses**: Morning medications (Donepezil, Memantine, Omega-3) marked as completed at 8:00 AM
+- **⏰ Upcoming Reminders**: Vitamin B12 scheduled for 12:00 PM with "Take Now" button
+- **🌙 Evening Schedule**: Evening medications scheduled for 8:00 PM
+- **🔍 Medication Search**: Search medications, dosages, and schedules
+- **➕ Add Reminder**: Easy addition of new medication reminders
+
+</div>
+
+### 📋 **Clinical Assessment & Monitoring**
+<div style="background: linear-gradient(135deg, #FFB6C1, #FFC0CB); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.28.47_e112bb45.jpg-QV4JSp1pGqbOKi2wK8FfFP8HXVbjYL.jpeg" alt="Dementia Assessment" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🏥 Comprehensive Clinical Evaluation**
+- **🧠 Dementia Type**: Alzheimer's Disease diagnosis and classification
+- **📊 Stage Monitoring**: Track progression through Mild/Early, Moderate/Middle, and Severe/Late stages
+- **🎯 Cognitive Assessment**: MMSE score tracking (18/30) with severity indicators
+- **📅 Assessment Schedule**: Last assessment (11/15/2023) and next due date (05/15/2024)
+- **📝 Symptom Tracking**: Monitor current symptoms including Cognitive and Behavioral changes
+- **📈 Progress Documentation**: Comprehensive assessment history and trend analysis
+
+</div>
+
+### 📖 **Memory Journal & Documentation**
+<div style="background: linear-gradient(135deg, #FFCCCB, #FFB3BA); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.26.58_1d56e3dd.jpg-VAxjyYIUHOBYtY9Lz1cPsP3Bkm0XPV.jpeg" alt="Memory Journal" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📝 Personal Memory & Experience Recording**
+- **📊 Entry Statistics**: 12 total entries with 4 entries this week
+- **🎤 Multi-Format Support**: 8 text entries and 4 voice entries for flexible documentation
+- **📅 Recent Memories**: "Morning Walk", "Family Visit", and "Memory from Childhood" entries
+- **🏷️ Popular Topics**: Family, Memories, Health, Activities, and Nature categorization
+- **🔥 Journaling Streak**: 3 days in a row streak motivation
+- **🔍 Memory Search**: Easy retrieval of past thoughts and experiences
+
+</div>
+
+### 📸 **Memory Album & Photo Management**
+<div style="background: linear-gradient(135deg, #FFE4E1, #FFDAB9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.25.43_817b7671.jpg-e7is19VdMhrqn0qtTyeH4f11dqIksP.jpeg" alt="Memory Album" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**📷 Digital Memory Preservation System**
+- **🗂️ Organized Collections**: Browse through All Memories, Albums, and People categories
+- **👨‍👩‍👧‍👦 Family Reunion 2019**: "The whole family gathered at the lake house" (July 15, 2019)
+- **🏖️ Beach Vacation**: "Our trip to the coast last summer" (August 3, 2022)
+- **🎂 60th Birthday Party**: "Celebration with friends and family" (May 10, 2020)
+- **🔍 Smart Search**: Search memories, people, or albums functionality
+- **➕ Add Memory**: Easy addition of new photos and memories
+
+</div>
+
+### 💝 **CareCompanion Inspiration**
+<div style="background: linear-gradient(135deg, #F8BBD9, #E4C1F9); padding: 20px; border-radius: 15px; margin: 15px 0;">
+
+<div align="center">
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-28%20at%2023.16.59_3559a55b.jpg-Qx5yB95GhJchzvAT8EeuG8EVNHXFPk.jpeg" alt="CareCompanion Motivation" width="600" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 15px 0;"/>
+</div>
+
+**🌟 Daily Motivation & Empowerment**
+- **💪 Inspirational Messaging**: "Empowering dementia care with intelligent technology and compassionate support"
+- **🎯 Care Philosophy**: "Every moment matters, every memory counts - together we create a caring environment where love and technology unite"
+- **👥 Team Support**: Encouragement from the CareCompanion Team
+- **🌈 Positive Reinforcement**: Building confidence and maintaining dignity through technology
+- **💖 Compassionate Care**: Focus on emotional wellness alongside cognitive support
 
 </div>
 
@@ -685,10 +870,9 @@ Smart Home Integration
 node --version
 
 # React Native CLI 📱
-npm install -g react-native-cli
+npm install-g react-native-cli
 
 # Python (for AI/ML components) 🐍
 python --version
 ```
 ```
-
