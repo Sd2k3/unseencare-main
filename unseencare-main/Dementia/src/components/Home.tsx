@@ -556,12 +556,12 @@ const Home = () => {
                   DEMENTIA CURE
                 </h3>
               </Link>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+              <a href="#" rel="noopener noreferrer" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   EPILEPSY CURE
                 </h3>
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+              <a href="#"  rel="noopener noreferrer" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   SPEECH DISORDER CURE
                 </h3>
