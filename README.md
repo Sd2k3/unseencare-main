@@ -365,3 +365,20 @@ npm install -g react-native-cli
 
 # Python (for AI/ML components) 🐍
 python --version
+```
+---
+<div align="center">
+  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/remove.photos-removed-background%20%282%29-mVR67P5SjR8e5d3IUkoT8aOq8OaQqW.png" alt="TransCrypt Logo" width="500"/>
+  <p>Made with ❤️ by Team Accers</p>
+  <p>© 2025 UnseenCare. All rights reserved.</p>
+  
+  <a href="https://twitter.com/transcrypt" target="_blank">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"/>
+  </a>
+  <a href="https://discord.gg/transcrypt" target="_blank">
+    <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/>
+  </a>
+  <a href="https://t.me/transcrypt" target="_blank">
+    <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
+  </a>
+</div>
