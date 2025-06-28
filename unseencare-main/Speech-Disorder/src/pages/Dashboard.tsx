@@ -29,6 +29,15 @@ import {
   Video,
 } from "lucide-react"
 
+declare global {
+  interface Window {
+    chatbase?: {
+      q?: any[];
+      (method: string, ...args: any[]): void;
+      [key: string]: any;
+    };
+  }
+}
 interface QuickStat {
   title: string
   value: string
@@ -47,15 +56,46 @@ interface Caregiver {
   lastActive: string
   status: "active" | "pending" | "inactive"
 }
-declare global {
-  interface Window {
-    chatbase?: {
-      q?: any[];
-      (method: string, ...args: any[]): void;
-      [key: string]: any;
-    };
-  }
-}
+
+const PhotoCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const photos = [
+    {
+      url: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop",
+      title: "Speech Therapy Session",
+      description: "Professional guidance for better communication",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop",
+      title: "Voice Training",
+      description: "Building confidence through practice",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop",
+      title: "Communication Skills",
+      description: "Developing clear articulation",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&h=400&fit=crop",
+      title: "Therapeutic Support",
+      description: "Expert care for speech disorders",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop",
+      title: "Family Encouragement",
+      description: "Together we overcome challenges",
+    },
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [photos.length])
+
  useEffect(() => {
     const initializeChatbase = () => {
       if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
@@ -106,45 +146,6 @@ declare global {
       window.removeEventListener("load", initializeChatbase);
     };
   }, []);
-const PhotoCarousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const photos = [
-    {
-      url: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop",
-      title: "Speech Therapy Session",
-      description: "Professional guidance for better communication",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop",
-      title: "Voice Training",
-      description: "Building confidence through practice",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=400&fit=crop",
-      title: "Communication Skills",
-      description: "Developing clear articulation",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&h=400&fit=crop",
-      title: "Therapeutic Support",
-      description: "Expert care for speech disorders",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=400&fit=crop",
-      title: "Family Encouragement",
-      description: "Together we overcome challenges",
-    },
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length)
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [photos.length])
-
   return (
     <div className="relative h-96 overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 rounded-3xl border border-pink-200/50 shadow-xl mb-8 animate-fade-in">
       {/* Background Pattern */}
