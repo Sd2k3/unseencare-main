@@ -24,7 +24,7 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_RECIPIENT = os.getenv("EMAIL_RECIPIENT")
 
 # SOS message
-SOS_MESSAGE = "Hiii it's me Swarajit, just trying out the SOS feature...YOOOO"
+SOS_MESSAGE = "Help needed!!!!"
 
 # Function to get GPS coordinates using an alternative IP-based service
 def get_gps_coordinates():
