@@ -59,19 +59,9 @@ export default function Albums() {
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200'
     },
     { 
-      name: 'Many friends', 
-      memories: 1,
-      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=200'
-    },
-    { 
       name: 'Parents', 
       memories: 1,
       image: 'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&q=80&w=200'
-    },
-    { 
-      name: 'Spouse', 
-      memories: 1,
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200'
     },
     { 
       name: 'Family', 
