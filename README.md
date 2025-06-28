@@ -57,7 +57,7 @@
 
 ---
 
-## 🩺 Core Technologies
+## 🩺 Core  Technologies
 
 <div align="center">
 
