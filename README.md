@@ -12,7 +12,7 @@
 <div align="center">
 
 <!-- UnseenCare Main Logo -->
-<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-06-22%20at%2012.43.57_c1217f20.jpg-LjC3jW2eoJyyiGSJoELOpO6ynHDheJ.jpeg" alt="UnseenCare Logo" width="400" style="margin: 20px 0;"/>
+<img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/remove.photos-removed-background%20%282%29-mVR67P5SjR8e5d3IUkoT8aOq8OaQqW.png" alt="UnseenCare Logo" width="400" style="margin: 20px 0;"/>
 
 # 🩺 UnseenCare
 ### *Empowering Lives Through AI-Powered Healthcare Solutions*
@@ -25,7 +25,7 @@
 [![AI Powered](https://img.shields.io/badge/AI-Powered-FF8C94?style=for-the-badge&logo=brain&logoColor=white)](https://github.com/yourusername/unseencare)
 [![Blockchain Security](https://img.shields.io/badge/Blockchain-Secured-FFB3BA?style=for-the-badge&logo=shield&logoColor=white)](https://github.com/yourusername/unseencare)
 [![Healthcare](https://img.shields.io/badge/Healthcare-Innovation-FFC0CB?style=for-the-badge&logo=heart&logoColor=white)](https://github.com/yourusername/unseencare)
-[![HACKARENA 2025](https://img.shields.io/badge/HACKARENA-2025%20Winner-FF1493?style=for-the-badge&logo=trophy&logoColor=white)](https://github.com/yourusername/unseencare)
+[![HACKARENA 2025](https://img.shields.io/badge/HACKARENA-2025%20Participant-FF1493?style=for-the-badge&logo=code&logoColor=white)](https://github.com/yourusername/unseencare)
 
 </div>
 
@@ -57,7 +57,7 @@
 
 ---
 
-## 🩺 Core  Technologies
+## 🩺 Core Technologies
 
 <div align="center">
 
@@ -328,7 +328,7 @@ Smart Home Integration
 
 ---
 
-## 🏆 HACKARENA 2025 Achievement
+## 🏆 HACKARENA 2025 Showcase
 
 <div align="center" style="background: linear-gradient(135deg, #000000, #FF1493); padding: 25px; border-radius: 20px; margin: 20px 0; color: white;">
 
