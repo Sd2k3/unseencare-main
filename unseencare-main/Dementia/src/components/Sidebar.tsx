@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { UserButton } from '@clerk/clerk-react';
+
 import { Brain, Home, Camera, Map, Gamepad2, MessageCircle, Pill, Smile, Clock, Settings, Music, NotebookIcon, HomeIcon } from 'lucide-react';
 
 export default function Sidebar() {
@@ -44,17 +44,7 @@ export default function Sidebar() {
           </div>
         </div>
         
-        <div className="flex items-center justify-between">
-          <UserButton
-            afterSignOutUrl="/"
-            appearance={{
-              elements: {
-                avatarBox: "h-10 w-10 ring-2 ring-pink-300/50"
-              }
-            }}
-          />
-         
-        </div>
+       
       </div>
 
       <nav className="relative z-10 p-4">

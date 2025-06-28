@@ -28,7 +28,15 @@ import {
   Upload,
   Video,
 } from "lucide-react"
-
+declare global {
+  interface Window {
+    chatbase?: {
+      q?: any[];
+      (method: string, ...args: any[]): void;
+      [key: string]: any;
+    };
+  }
+}
 interface QuickStat {
   title: string
   value: string
@@ -47,6 +55,7 @@ interface Caregiver {
   lastActive: string
   status: "active" | "pending" | "inactive"
 }
+
 
 const PhotoCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -86,6 +95,57 @@ const PhotoCarousel: React.FC = () => {
 
     return () => clearInterval(interval)
   }, [photos.length])
+  
+ useEffect(() => {
+    const initializeChatbase = () => {
+      if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
+        window.chatbase = (...args: any[]) => {
+          if (!window.chatbase?.q) {
+            window.chatbase.q = [];
+          }
+          window.chatbase.q?.push(args);
+        };
+
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") {
+              return target.q;
+            }
+            return (...args: any[]) => {
+              if (typeof target === 'function') {
+                return (target as any)(prop, ...args);
+              }
+            };
+          }
+        });
+      }
+
+      const onLoad = () => {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "jYpti2EL-CsGzwxr1Hpre";
+        script.setAttribute("domain", "www.chatbase.co");
+        script.defer = true;
+        document.body.appendChild(script);
+      };
+
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    };
+
+    initializeChatbase();
+
+    return () => {
+      const chatbaseScript = document.getElementById("jYpti2EL-CsGzwxr1Hpre");
+      if (chatbaseScript) {
+        chatbaseScript.remove();
+      }
+      window.removeEventListener("load", initializeChatbase);
+    };
+  }, []);
 
   return (
     <div className="relative h-96 overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 rounded-3xl border border-pink-200/50 shadow-xl mb-8 animate-fade-in">

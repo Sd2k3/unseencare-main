@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll } from "framer-motion"
 import { Brain, Camera, MessageSquare, Album, Heart, Clock, Users, Sparkles, Play, Target, TrendingUp, BarChart3, Activity, Award, Plus, Share, Eye, Bell, Shield, Mail, Phone, Settings, Upload, Video } from 'lucide-react'
-import { SignInButton } from "@clerk/clerk-react"
+
 import Sidebar from './Sidebar'
 
 interface QuickStat {
@@ -36,6 +36,65 @@ interface Shape {
   delay: number;
   opacity: number;
 }
+declare global {
+  interface Window {
+    chatbase?: {
+      q?: any[];
+      (method: string, ...args: any[]): void;
+      [key: string]: any;
+    };
+  }
+}
+ useEffect(() => {
+    const initializeChatbase = () => {
+      if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
+        window.chatbase = (...args: any[]) => {
+          if (!window.chatbase?.q) {
+            window.chatbase.q = [];
+          }
+          window.chatbase.q?.push(args);
+        };
+
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") {
+              return target.q;
+            }
+            return (...args: any[]) => {
+              if (typeof target === 'function') {
+                return (target as any)(prop, ...args);
+              }
+            };
+          }
+        });
+      }
+
+      const onLoad = () => {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "jYpti2EL-CsGzwxr1Hpre";
+        script.setAttribute("domain", "www.chatbase.co");
+        script.defer = true;
+        document.body.appendChild(script);
+      };
+
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    };
+
+    initializeChatbase();
+
+    return () => {
+      const chatbaseScript = document.getElementById("jYpti2EL-CsGzwxr1Hpre");
+      if (chatbaseScript) {
+        chatbaseScript.remove();
+      }
+      window.removeEventListener("load", initializeChatbase);
+    };
+  }, []);
 
 const PhotoCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -792,16 +851,6 @@ export default function Dashboard() {
             />
           </div>
 
-          {/* Sign In Button */}
-          <div className="absolute top-6 right-6 z-50">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <SignInButton>
-                <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
-                  Sign In
-                </button>
-              </SignInButton>
-            </motion.div>
-          </div>
 
           {/* Hero Section with Enhanced Design */}
           <div className="relative overflow-hidden">

@@ -4,7 +4,8 @@ from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS to allow requests from React
+CORS(app, supports_credentials=True)
+
 
 # In-memory storage for queries (use a database in production)
 queries = []
