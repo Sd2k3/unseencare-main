@@ -9,6 +9,7 @@ import {
   AlertCircle,
   ChevronRight,
 } from 'lucide-react';
+import Sidebar from './Sidebar';
 
 export default function Recognition() {
   const [activeSection, setActiveSection] = useState<'face' | 'object' | null>(null);
@@ -92,7 +93,8 @@ export default function Recognition() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 pl-0 sm:pl-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-8 pl-0 sm:pl-20 ml-96">
+        <Sidebar/>
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
