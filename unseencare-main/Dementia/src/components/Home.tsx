@@ -8,7 +8,6 @@ import 'swiper/css/effect-coverflow';
 import { Link } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-import SubscribeButton from './SubscribeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +18,7 @@ type LocomotiveScrollType = {
   update: () => void;
   destroy: () => void;
 };
-  declare global {
+declare global {
   interface Window {
     chatbase?: {
       q?: any[];
@@ -28,64 +27,14 @@ type LocomotiveScrollType = {
     };
   }
 }
-
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const fixedImageRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const locomotiveScrollRef = useRef<LocomotiveScrollType | null>(null);
 
+   
 
- useEffect(() => {
-    const initializeChatbase = () => {
-      if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
-        window.chatbase = (...args: any[]) => {
-          if (!window.chatbase?.q) {
-            window.chatbase.q = [];
-          }
-          window.chatbase.q?.push(args);
-        };
-
-        window.chatbase = new Proxy(window.chatbase, {
-          get(target, prop) {
-            if (prop === "q") {
-              return target.q;
-            }
-            return (...args: any[]) => {
-              if (typeof target === 'function') {
-                return (target as any)(prop, ...args);
-              }
-            };
-          }
-        });
-      }
-
-      const onLoad = () => {
-        const script = document.createElement("script");
-        script.src = "https://www.chatbase.co/embed.min.js";
-        script.id = "jYpti2EL-CsGzwxr1Hpre";
-        script.setAttribute("domain", "www.chatbase.co");
-        script.defer = true;
-        document.body.appendChild(script);
-      };
-
-      if (document.readyState === "complete") {
-        onLoad();
-      } else {
-        window.addEventListener("load", onLoad);
-      }
-    };
-
-    initializeChatbase();
-
-    return () => {
-      const chatbaseScript = document.getElementById("jYpti2EL-CsGzwxr1Hpre");
-      if (chatbaseScript) {
-        chatbaseScript.remove();
-      }
-      window.removeEventListener("load", initializeChatbase);
-    };
-  }, []);
   // Initialize animations and effects
   useEffect(() => {
     // Loader animation
@@ -297,7 +246,57 @@ const Home = () => {
       }
     }
   };
+  
+useEffect(() => {
+    const initializeChatbase = () => {
+      if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
+        window.chatbase = (...args: any[]) => {
+          if (!window.chatbase?.q) {
+            window.chatbase.q = [];
+          }
+          window.chatbase.q?.push(args);
+        };
 
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") {
+              return target.q;
+            }
+            return (...args: any[]) => {
+              if (typeof target === 'function') {
+                return (target as any)(prop, ...args);
+              }
+            };
+          }
+        });
+      }
+
+      const onLoad = () => {
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "jYpti2EL-CsGzwxr1Hpre";
+        script.setAttribute("domain", "www.chatbase.co");
+        script.defer = true;
+        document.body.appendChild(script);
+      };
+
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
+    };
+
+    initializeChatbase();
+
+    return () => {
+      const chatbaseScript = document.getElementById("jYpti2EL-CsGzwxr1Hpre");
+      if (chatbaseScript) {
+        chatbaseScript.remove();
+      }
+      window.removeEventListener("load", initializeChatbase);
+    };
+  }, []);
   return (
     <div className="relative">
       {/* Loader */}
@@ -329,11 +328,9 @@ const Home = () => {
   <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
     <img src="/placeholder.svg" alt="Logo" className="h-12" />
     <div id="nav-part2" className="flex items-center gap-[1vw]">
-      
       <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
-                <SubscribeButton/>
+                Sign In
               </button>
-      
       <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
         <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
           Contact
@@ -366,14 +363,14 @@ const Home = () => {
     <div id="hero-3" className="h-[30vw] w-[30vw] rounded-full absolute bg-gradient-to-br from-[#fe320a] to-[#ff5c0b] blur-[25px]" />
   </div>
 
-  {/* <video 
+  <video 
     autoPlay 
     loop 
     muted 
     className="relative rounded-3xl mt-[4vw] w-full transition-all duration-400 hover:scale-102"
   >
     <source src="/Untitled video - Made with Clipchamp (1).mp4" type="video/mp4" />
-  </video> */}
+  </video> 
 </div>
         {/* Page 2 - Moving Text Section */}
         <div id="page2" className="min-h-screen w-full bg-black py-[8vw] relative">
@@ -622,12 +619,12 @@ const Home = () => {
                 </h3>
                 </Link>
               </a>
-              <a href="https://unseencare-main.vercel.app/" target="_blank" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+              <a href="https://unseencare-main.vercel.app/" className="cure-btn epilepsy-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#3b82f6] hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   EPILEPSY CURE
                 </h3>
               </a>
-              <a href="https://unseencare-main-yrdw.vercel.app/" target="_blank" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
+              <a href="https://unseencare-main-yrdw.vercel.app/" className="cure-btn speech-btn block py-12 px-8 bg-[rgba(255,255,255,0.05)] border-2 border-[#ffffff3c] rounded-[20px] no-underline transition-all duration-400 relative overflow-hidden hover:-translate-y-2.5 hover:border-[#ec4899] hover:shadow-[0_0_30px_rgba(236,72,153,0.3)]">
                 <h3 className="text-[1.8rem] text-white relative z-[2] transition-all duration-300 hover:text-white">
                   SPEECH DISORDER CURE
                 </h3>
