@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll } from "framer-motion"
 import { Brain, Camera, MessageSquare, Album, Heart, Clock, Users, Sparkles, Play, Target, TrendingUp, BarChart3, Activity, Award, Plus, Share, Eye, Bell, Shield, Mail, Phone, Settings, Upload, Video } from 'lucide-react'
-
+import { SignInButton } from "@clerk/clerk-react"
 import Sidebar from './Sidebar'
 
 interface QuickStat {
@@ -45,7 +45,46 @@ declare global {
     };
   }
 }
- useEffect(() => {
+ 
+const PhotoCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const photos = [
+    {
+      url: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=3271&auto=format&fit=crop",
+      title: "Compassionate Care",
+      description: "Professional dementia care with advanced technology",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2671&auto=format&fit=crop",
+      title: "Memory Support",
+      description: "Preserving precious memories with digital archives",
+    },
+    {
+      url: "https://plus.unsplash.com/premium_photo-1661769167673-cfdb37f156d8?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Family Connection",
+      description: "Keeping families connected through technology",
+    },
+    {
+      url: "https://plus.unsplash.com/premium_photo-1682094069738-19a65f3145b9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Cognitive Training",
+      description: "AI-powered cognitive exercises and support",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
+      title: "Daily Care",
+      description: "Comprehensive daily care management",
+    },
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length)
+    }, 4000)
+
+    return () => clearInterval(interval)
+  }, [photos.length])
+useEffect(() => {
     const initializeChatbase = () => {
       if (!window.chatbase || (window.chatbase as any)("getState") !== "initialized") {
         window.chatbase = (...args: any[]) => {
@@ -95,46 +134,6 @@ declare global {
       window.removeEventListener("load", initializeChatbase);
     };
   }, []);
-
-const PhotoCarousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const photos = [
-    {
-      url: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=3271&auto=format&fit=crop",
-      title: "Compassionate Care",
-      description: "Professional dementia care with advanced technology",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1624727828489-a1e03b79bba8?q=80&w=2671&auto=format&fit=crop",
-      title: "Memory Support",
-      description: "Preserving precious memories with digital archives",
-    },
-    {
-      url: "https://plus.unsplash.com/premium_photo-1661769167673-cfdb37f156d8?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Family Connection",
-      description: "Keeping families connected through technology",
-    },
-    {
-      url: "https://plus.unsplash.com/premium_photo-1682094069738-19a65f3145b9?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Cognitive Training",
-      description: "AI-powered cognitive exercises and support",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2670&auto=format&fit=crop",
-      title: "Daily Care",
-      description: "Comprehensive daily care management",
-    },
-  ]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % photos.length)
-    }, 4000)
-
-    return () => clearInterval(interval)
-  }, [photos.length])
-
   return (
     <div className="relative h-96 overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 rounded-3xl border border-pink-200/50 shadow-xl mb-8 animate-fade-in">
       {/* Background Pattern */}
@@ -851,6 +850,16 @@ export default function Dashboard() {
             />
           </div>
 
+          {/* Sign In Button */}
+          <div className="absolute top-6 right-6 z-50">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <SignInButton>
+                <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
+                  Sign In
+                </button>
+              </SignInButton>
+            </motion.div>
+          </div>
 
           {/* Hero Section with Enhanced Design */}
           <div className="relative overflow-hidden">
