@@ -8,6 +8,7 @@ import 'swiper/css/effect-coverflow';
 import { Link } from 'react-router-dom';
 import LocomotiveScroll from 'locomotive-scroll';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
+import SubscribeButton from './SubscribeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -326,10 +327,10 @@ useEffect(() => {
         {/* Page 1 - Hero Section */}
         <div id="page1" className="min-h-screen w-full bg-black relative px-[2vw]">
   <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
-
+    {/* <img src="/placeholder.svg" alt="Logo" className="h-12" /> */}
     <div id="nav-part2" className="flex items-center gap-[1vw]">
       <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
-                Sign In
+                <SubscribeButton/>
               </button>
       <h4 className="px-5 py-2 border border-[#ffffff3c] rounded-full font-medium text-white text-lg overflow-hidden cursor-pointer relative transition-all duration-300 hover:transform hover:-translate-y-0.5">
         <a href="#" className="relative z-[9] transition-all duration-300 hover:text-white">
@@ -479,7 +480,7 @@ useEffect(() => {
                 </svg>
               </a>
               <h2 className="text-white text-5xl relative z-[9] transition-all duration-300 hover:text-[#fe320a] hover:translate-x-5">
-                KANAK SHARMA - FULLSTACK DEVLOPER
+                KANAK - FULLSTACK DEVLOPER
               </h2>
             </div>
 
