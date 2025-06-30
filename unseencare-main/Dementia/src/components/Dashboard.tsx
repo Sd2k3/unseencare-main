@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll } from "framer-motion"
 import { Brain, Camera, MessageSquare, Album, Heart, Clock, Users, Sparkles, Play, Target, TrendingUp, BarChart3, Activity, Award, Plus, Share, Eye, Bell, Shield, Mail, Phone, Settings, Upload, Video } from 'lucide-react'
-import { SignInButton } from "@clerk/clerk-react"
+
 import Sidebar from './Sidebar'
 
 interface QuickStat {
@@ -850,16 +850,8 @@ export default function Dashboard() {
             />
           </div>
 
-          {/* Sign In Button */}
-          <div className="absolute top-6 right-6 z-50">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <SignInButton>
-                <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
-                  Sign In
-                </button>
-              </SignInButton>
-            </motion.div>
-          </div>
+
+        
 
           {/* Hero Section with Enhanced Design */}
           <div className="relative overflow-hidden">
