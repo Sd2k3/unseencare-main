@@ -326,7 +326,7 @@ useEffect(() => {
         {/* Page 1 - Hero Section */}
         <div id="page1" className="min-h-screen w-full bg-black relative px-[2vw]">
   <nav className="py-[2vw] w-full flex items-center relative z-[100] justify-between">
-    <img src="/placeholder.svg" alt="Logo" className="h-12" />
+
     <div id="nav-part2" className="flex items-center gap-[1vw]">
       <button className="bg-gradient-to-r from-[#E83E8C] to-[#6F42C1] text-white px-6 py-2 rounded-full font-medium shadow-md hover:shadow-lg transition-all duration-300">
                 Sign In
@@ -458,7 +458,7 @@ useEffect(() => {
                 </svg>
               </a>
               <h2 className="text-white text-5xl relative z-[9] transition-all duration-300 hover:text-[#fe320a] hover:translate-x-5">
-                CHIRAG FRONTEND UI/UX
+                CHIRAG - FRONTEND UI/UX
               </h2>
             </div>
 
@@ -479,7 +479,7 @@ useEffect(() => {
                 </svg>
               </a>
               <h2 className="text-white text-5xl relative z-[9] transition-all duration-300 hover:text-[#fe320a] hover:translate-x-5">
-                KANAK FULLSTACK DEVLOPER
+                KANAK SHARMA - FULLSTACK DEVLOPER
               </h2>
             </div>
 
@@ -500,7 +500,7 @@ useEffect(() => {
                 </svg>
               </a>
               <h2 className="text-white text-5xl relative z-[9] transition-all duration-300 hover:text-[#fe320a] hover:translate-x-5">
-                ROHIT SHARMA BACKEND DEVLOPER
+                ROHIT SHARMA - BACKEND DEVLOPER
               </h2>
             </div>
 
@@ -521,7 +521,7 @@ useEffect(() => {
                 </svg>
               </a>
               <h2 className="text-white text-5xl relative z-[9] transition-all duration-300 hover:text-[#fe320a] hover:translate-x-5">
-                SWARAJIT DEY AI/ML
+                SWARAJIT DEY - AI/ML + BLOCKCHAIN
               </h2>
             </div>
           </div>
